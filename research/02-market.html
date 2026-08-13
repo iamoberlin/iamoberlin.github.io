@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Market context — MetaDAO, futarchy, ownership coins — Proposal Risk</title>
+  <title>Market — MetaDAO, futarchy, ownership coins — Proposal Risk</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter+Tight:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
@@ -132,51 +132,55 @@
     </div>
     <div class="nav-end"><a class="nav-cta" href="https://github.com/iamoberlin/01R">GitHub</a></div>
   </nav></header>
-  <article class="prose"><h1>Market context — MetaDAO, futarchy, ownership coins</h1>
-<p><em>Compiled 2026-08-12. Pass-2 additions at the bottom.</em></p>
-<h2>The mechanism</h2>
+  <article class="prose"><h1>Market — MetaDAO, futarchy, ownership coins</h1>
+<p>Formulas and microstructure live in <a href="03-methods.html">03-methods.md</a>. This note is the landscape 01Resolved is levered to.</p>
+<h2>Mechanism (short)</h2>
+<p>Futarchy: paired conditional markets price the org if a proposal <strong>passes</strong> vs <strong>fails</strong>. It executes only if pass TWAP beats fail TWAP by a threshold in the TWAP window. Trades are classified by <em>economic</em> exposure (pass-buy and fail-sell are pass-aligned), not surface direction.</p>
+<p><strong>Ownership coins</strong> (MetaDAO ICO framework, first launch Apr 2025 — MtnDAO): high-float fair issuance, proceeds in an onchain treasury under decision-market control, program-enforced monthly spend, IP in a DAO-linked entity, team tokens behind an 18-month cliff + performance milestones.</p>
+<p><strong>Ownership Score</strong> (20–21 Jul 2026): daily, wallet score += USD holdings with 1%/day decay; META weighted 25%; retroactive to 115K+ wallets. Up to 50% of Rip Cars was allocated by score. Flagship findings: 170 wallets (0.15%) hold 50% of score; score-allocated Rip Cars wallets kept <strong>63%</strong> of tokens on day 1 vs <strong>18%</strong> for others. Crude, but better than allocating without it. Individual scores were publicly disputed; MetaDAO says the formula may change.</p>
+<h2>MetaDAO</h2>
 <ul>
-<li><strong>Futarchy</strong> (Robin Hanson: &quot;vote on values, bet on beliefs&quot;): governance proposals are decided by paired conditional markets. One market prices the org if the proposal passes, the other if it fails. The proposal executes only if the pass-market TWAP exceeds the fail-market TWAP by a configured threshold during the TWAP window.</li>
-<li><strong>Pass edge</strong> = ((passTWAP − failTWAP) / failTWAP) × 100; passes when ≥ twapThreshold.</li>
-<li><strong>Economic direction</strong>: fail-sell is pass-aligned, pass-sell is fail-aligned — trades are classified by economic exposure, not surface direction (01Resolved&#39;s framing).</li>
-<li><strong>Ownership coins</strong> (MetaDAO&#39;s ICO framework, first launch Apr 2025 — MtnDAO): high-float fair issuance, proceeds to onchain treasury under decision-market control, monthly spending limits enforced by the treasury program, IP assigned to DAO-linked entity, team tokens behind an 18-month cliff + performance milestones.</li>
-<li><strong>Ownership Score</strong> (introduced Jul 20-21, 2026): daily, wallet score += USD value of ownership-coin holdings, with 1%/day decay; META weighted 25%. Assigned retroactively to 115K+ wallets. Up to 50% of the Rip Cars raise was allocated by score.</li>
+<li>Launchpad live 9 Apr 2025. Founders: <strong>Proph3t</strong> and <strong>Kollan House</strong>. SF, ~1–10 people. ~<strong>$12.1M</strong> raised (Paradigm $2.2M in 2024 + $9.9M OTC Oct 2025 from Paradigm/Variant/6MV). <strong>Pantera is not an investor</strong> — its Feb 2024 $50K META buy was rejected by the market.</li>
+<li>Revenue: FutarchyAMM 0.5% (fully to MetaDAO since Dec 2025) + Meteora LP. 01Resolved measured ~$127K (Jun) → <strong>~$245K (Jul)</strong>, +93% MoM. Job listings have claimed ~$9M/yr; treat that as unverified.</li>
+<li>Template: 200K–1.5M token stake; <strong>one live proposal per DAO</strong>; 3-day markets; lagging TWAP with 24h pre-record; thresholds <strong>−3% team / +3% non-team</strong>. “MetaDAO 2.0” is community shorthand (proposal-type thresholds, NAV-guided buys/sells, elected committee), not a named MetaDAO program.</li>
+<li>Traction: 2025 projects raised $96M combined; Umbra ICO $154M committed; Rip Cars 128×; ownership-coin mcap <strong>$159M</strong> (9 Aug). META on Coinbase.</li>
 </ul>
-<h2>2026 momentum</h2>
-<ul>
-<li><strong>Rip Cars</strong>: $31.97M committed vs $250K minimum (128× oversubscribed), 723 wallets, Jul 2026.</li>
-<li><strong>Ordr</strong>: 62× oversubscribed, $9.29M. <strong>Credible</strong>: $32.8M committed, accepted $4M. <strong>Laso</strong>: $25.6M committed, accepted $1M. <strong>Kimia</strong>: 12.1× oversubscribed (Aug). <strong>Jurassic (RAWR)</strong>: first oversubscribed launch on Spark, $12.5M committed.</li>
-<li>META listed on <strong>Coinbase</strong> (plus DexScreener FutarchyAMM integration).</li>
-<li>MetaDAO protocol revenue: ~$127K (Jun) → <strong>~$245K (Jul)</strong>, +93% MoM.</li>
-<li>First <strong>Owners Meeting</strong> in San Francisco (Jul 2026).</li>
-<li>&quot;MetaDAO 2.0&quot; (community/01Resolved shorthand, not a formal initiative): proposal-type thresholds, NAV-guided programmatic token purchases/sales, elected oversight committee.</li>
-<li>Established Solana DAOs also use/experiment with futarchy: Jito, Sanctum, Drift, Marinade (all tracked on the platform). GnosisDAO approved a Futarchy Labs pilot; MetaDAO funds Robin Hanson&#39;s futarchy research at GMU ($80K/6mo).</li>
-<li>MetaDAO itself: founded by pseudonymous Proph3t + Kollan House; ~$12.1M raised (Paradigm-led $2.2M in 2024 + $9.9M OTC Oct 2025 from Paradigm/Variant/6MV — Pantera&#39;s 2024 buy-in was <em>rejected</em> by the decision market); ~1–10 people, SF, hiring engineers at $150–400K per third-party boards. See 10-competitive-landscape.md for mechanics.</li>
-</ul>
-<h2>Scale reality-check (July 2026, per 01Resolved)</h2>
+<h2>Adjacent venues</h2>
+<p>Futardio (permissionless; high miss rate), Star.fun (internet rounds), Spark (IdeaCoins; Jurassic $RAWR), plus Crafts, Fair.Club, Street, Bedrock, Combinator. Expansion surface for 01Resolved’s adapters — see <a href="05-role.html">05-role.md</a>.</p>
+<h2>Scale (their July 2026 snapshot)</h2>
 <table><thead><tr><th>Metric</th><th>Value</th></tr></thead><tbody>
-<tr><td>Total tracked treasury value</td><td>$34.42M</td></tr>
+<tr><td>Tracked treasury</td><td>$34.42M</td></tr>
 <tr><td>Decision-market volume (month)</td><td><strong>$5.86K</strong></td></tr>
 <tr><td>Proposals resolved (month)</td><td>1</td></tr>
 <tr><td>Completed launches (month)</td><td>4</td></tr>
-<tr><td>Total launches / market cap of launched projects</td><td>12 / ~$100M</td></tr>
+<tr><td>Launches / launched mcap</td><td>12 / ~$100M</td></tr>
 </tbody></table>
-<p>The market is tiny today; the bet is on trajectory and on owning the data layer if ownership coins become a real capital market.</p>
-<h2>Mechanism stress-tests (all covered by 01Resolved)</h2>
+<p>The market is tiny. The bet is trajectory plus owning the data layer if this becomes a real capital market.</p>
+<p>Monthly series (their numbers; June was restated in the July issue — $1.42M/200 wallets vs $1.39M/165). Volume is lumpy: Solomon Gigabus alone was $2.67M in April.</p>
+<table><thead><tr><th>Month</th><th>DM volume</th><th>Wallets</th><th>Proposals</th><th>Treasury</th><th>MetaDAO rev</th></tr></thead><tbody>
+<tr><td>Jan 26</td><td>$2.31M</td><td>158</td><td>6</td><td>–</td><td>–</td></tr>
+<tr><td>Apr 26</td><td>$2.84M</td><td>155</td><td>4</td><td>$31.3M</td><td>–</td></tr>
+<tr><td>Jun 26</td><td>$1.42M*</td><td>200*</td><td>7*</td><td>$28.8M</td><td>~$127K</td></tr>
+<tr><td>Jul 26</td><td>$5.9K</td><td>13</td><td>1</td><td>$34.4M</td><td>~$245K</td></tr>
+</tbody></table>
+<h2>Stress-tests they covered</h2>
 <ul>
-<li><strong>Umbra treasury attack (Aug 2026)</strong>: fresh wallet funded ~$149K via deBridge from Base, accumulated exactly the 500K UMBRA proposal stake, proposed moving $1.5M (~62% of treasury). Market rejected it 19.55% below threshold; attacker lost only <strong>$4,623</strong>. Defense was 4 distributed wallets ($165K net opposition). Conditional pools held just $52K — thin depth is the exposure. Their proposed fixes: stake locked for proposal duration, thresholds scaling with treasury share requested, deeper pools per proposal type.</li>
-<li><strong>Ranger Finance</strong>: decision market liquidated the project&#39;s treasury (early 2026).</li>
-<li><strong>ZKFG/Zinc</strong>: revenue kept outside the DAO treasury → trust dispute → structured buyout of IP, DAO dissolved. Basis of their &quot;route 100% of revenue through the treasury&quot; position.</li>
-<li><strong>Flash Trade</strong>: winding down unless acquired (Aug 2026).</li>
-<li><strong>Ownership Score correctness</strong>: individual scores publicly disputed on X after the snapshot; MetaDAO says the formula may change; retroactivity rewarded conviction but top scorers mostly didn&#39;t participate in the raise it gated.</li>
+<li><strong>Umbra (Aug 2026)</strong> — fresh wallet, deBridge from Base, exact 500K stake, $1.5M (~62% of treasury) request. Failed 19.55% below threshold; attacker cost <strong>$4,623</strong>. Pools ~$52K. This repo’s scorer is that pattern.</li>
+<li><strong>Ranger</strong> — market liquidated the treasury.</li>
+<li><strong>ZKFG/Zinc</strong> — revenue kept off-treasury → buyout, DAO dissolved.</li>
+<li><strong>Flash Trade</strong> — winding down unless acquired.</li>
+<li>Thin-market governance: a $2M MetaDAO allocation passed on ~$3K volume.</li>
 </ul>
-<h2>Ownership Score / Rip Cars key findings (their flagship analysis)</h2>
-<ul>
-<li>170 wallets (0.15%) hold 50% of all score; top 1,000 hold 78.8%.</li>
-<li>70% of Rip Cars contributors carried some score (77% of capital), but participants held only 7.6% of all score in existence; 3 of the 5 largest commitments had zero score.</li>
-<li>Day-1 retention: score-allocated wallets kept <strong>63%</strong> of tokens vs <strong>18%</strong> for others; top score quartile sold 26% vs 60-75% for lower quartiles.</li>
-<li>Conclusion: the score is crude but beat allocating without it; they committed to 1-week and 1-month retention re-runs.</li>
-</ul></article>
+<p>Deaths so far: mtnCapital, Ranger, ZKFG, Flash Trade, plus FairScale on Combinator.</p>
+<h2>Competitors</h2>
+<table><thead><tr><th>Player</th><th>Overlap</th></tr></thead><tbody>
+<tr><td><strong>Blockworks</strong></td><td>TTF disclosure + MetaDAO revenue dashboards. 01Resolved claims the layer <em>under</em> TTF (verification). Most plausible partner/acquirer — and the incumbent risk.</td></tr>
+<tr><td><strong>Token Terminal</strong></td><td>Fee-based financials; no futarchy, no wallet-level books</td></tr>
+<tr><td><strong>Messari / DeepDAO</strong></td><td>Broad research or token-voting treasuries; no decision markets</td></tr>
+<tr><td><strong>Dune / Flipside</strong></td><td>Their explicit foil: unverified, stale, incomparable</td></tr>
+<tr><td><strong>Pine Analytics</strong></td><td>Nearest competing <em>research</em> coverage</td></tr>
+</tbody></table>
+<p>Nobody else joins wallet-to-statement NAV with decision-market microstructure. The risk is Blockworks coming down or MetaDAO building this in-house.</p></article>
     <div class="prose" style="padding-top:0"><p><a href="index.html">All research</a></p></div>
   
 </body>

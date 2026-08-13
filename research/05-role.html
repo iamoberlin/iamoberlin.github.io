@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Risks &amp; open questions to probe — Proposal Risk</title>
+  <title>Role — what a lead engineer owns — Proposal Risk</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter+Tight:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
@@ -132,26 +132,32 @@
     </div>
     <div class="nav-end"><a class="nav-cta" href="https://github.com/iamoberlin/01R">GitHub</a></div>
   </nav></header>
-  <article class="prose"><h1>Risks &amp; open questions to probe</h1>
-<h2>Risks</h2>
+  <article class="prose"><h1>Role — what a lead engineer owns</h1>
+<p>Almost certainly the first senior engineering hire beside one technical founder: architecture, not a slice. Ranked by strategic weight.</p>
 <ol>
-<li><strong>Single-ecosystem dependency.</strong> The business is levered to MetaDAO&#39;s success, and MetaDAO has said mechanisms (e.g., Ownership Score formula) may change under them at any time. What does &quot;beyond MetaDAO&quot; concretely mean, and on what timeline?</li>
-<li><strong>Market size today.</strong> $5.86K of ecosystem-wide decision-market volume in July 2026 and a 103-subscriber Telegram. The entire market could stay niche; the bet only pays if ownership coins keep compounding (93% MoM MetaDAO revenue growth is the counter-signal).</li>
-<li><strong>Unproven revenue model.</strong> No visible pricing, no announced funding, founders publish under first names only. Verified Aug 12: no funding trace anywhere — not in press, Crunchbase/CB Insights, their own 43 posts, or X citations; they have not ICO&#39;d on MetaDAO/Futardio themselves either. Presumably bootstrapped — yet someone paid for a VAR META agency build (typically low-to-mid six figures), so ask how it&#39;s financed.</li>
-<li><strong>Neutrality vs ecosystem intimacy.</strong> Credibility depends on independence, yet MetaDAO&#39;s founder amplifies their work, they presented at MetaDAO&#39;s Owners Meeting, and API keys are granted by DM. They do disclose trading on Ride Markets themselves. How will research stay honest as commercial ties deepen?</li>
-<li><strong>Incumbent risk.</strong> Blockworks already runs MetaDAO revenue dashboards and owns the disclosure standard (TTF + Transparency Alliance with Coinbase/Kraken/Grayscale). 01Resolved positions as complementary — but Blockworks expanding downward, or MetaDAO building analytics in-house, are both live threats. (Flip side: Blockworks is also the most plausible partner/acquirer.)</li>
-<li><strong>Their own data quality.</strong> The July monthly restates June&#39;s headline metrics differently than the June issue did (DM volume $1.42M vs $1.39M, 200 vs 165 wallets) — even flagship numbers drift between their own reports. Supports the &quot;correctness as moat&quot; pitch, and worth raising tactfully.</li>
+<li><strong>Correctness as the moat.</strong> Everything they sell is a derived number. After the Ownership Score snapshot, wrong individual scores hit X. In an intelligence shop one bad figure costs more than ten missing features. <strong>Build:</strong> reconcile to chain, idempotent backfills, reorg/upgrade resilience, anomaly detection, a published data-quality method. (Their own monthlies restated June’s volume — see <a href="06-risks.html">06-risks.md</a>.)</li>
 </ol>
-<h2>Questions for the founders</h2>
-<ul>
-<li>Runway and funding: bootstrapped? Any outside capital? What&#39;s the burn?</li>
-<li>Entity and equity: is Organization Technology LLC the employer? How is the lead engineer compensated — cash / equity / tokens? Cap table basics.</li>
-<li>Current architecture: who built the indexer/classification engine, what&#39;s the debt, what breaks most often? (The /treasury-intelligence 500 is a conversation opener.)</li>
-<li>Revenue plan sequencing: API tiers vs OpenBooks vs signals — which first, and who are the first three paying customers they have in mind?</li>
-<li>Relationship with MetaDAO: formal partnership? Data access guarantees? Would MetaDAO build this in-house? (MetaDAO&#39;s X bio says &quot;We&#39;re hiring!&quot; — they&#39;re staffing up too.)</li>
-<li>Team plans: is lead engineer hire #1? What&#39;s the 12-month hiring plan?</li>
-<li>What happened with the disputed Ownership Scores — was the error theirs, MetaDAO&#39;s, or wallet-attribution ambiguity (same owner, multiple wallets)?</li>
-</ul></article>
+<ol>
+<li><strong>Real-time infra.</strong> Umbra’s defense flipped in fifteen minutes. Signals are Telegram-only. <strong>Build:</strong> Geyser/websocket indexing, live pass-edge, API webhooks. “Is this passing <em>right now</em>” is something traders pay for.</li>
+</ol>
+<ol>
+<li><strong>Ingestion beyond MetaDAO.</strong> They already watch Futardio, Star, Spark. Today each venue is probably a bespoke pipe. <strong>Build:</strong> adapters — a new launchpad or chain is config plus a thin driver.</li>
+</ol>
+<ol>
+<li><strong>API as revenue.</strong> Beta, hand-keyed, paid tiers “available,” six integration pitches already in the docs. <strong>Build:</strong> self-serve keys, metering, billing, SLAs, status page.</li>
+</ol>
+<ol>
+<li><strong>OpenBooks as the B2B wedge.</strong> Their “route 100% of revenue through the treasury” Call manufactures demand for a ledger. Rules/patterns/batches are already in the app. <strong>Build:</strong> double-entry movements, period close, statements teams can publish.</li>
+</ol>
+<ol>
+<li><strong>Research → product.</strong> Ownership Score (115K wallets) and Umbra were one-offs; they promised 1-week/1-month re-runs by hand. <strong>Build:</strong> cohort trackers, wallet forensics, holder-quality as a service.</li>
+</ol>
+<ol>
+<li><strong>Governance-attack early warning.</strong> The Umbra pattern (fresh wallet, bridge, exact stake, recover+reuse, cadence) is detectable <em>before</em> the next $4,623 swing. This repo is that item. <strong>Build:</strong> funding-path traces, accumulation alerts, proposal risk scores on live data.</li>
+</ol>
+<ol>
+<li><strong>Engineering leadership.</strong> Production 500s, no public tests, agency-built backend. <strong>Do:</strong> CI, observability, incident discipline; keep their agentic workflow; hire the next engineers; free James and Drew for research and distribution.</li>
+</ol></article>
     <div class="prose" style="padding-top:0"><p><a href="index.html">All research</a></p></div>
   
 </body>

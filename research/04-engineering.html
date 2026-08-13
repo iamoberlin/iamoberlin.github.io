@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Engineering — stack, API, fingerprints — Proposal Risk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter+Tight:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    
+    :root {
+      --bg: #ffffff;
+      --panel: #f3f3f3;
+      --line: #e8e8e8;
+      --text: #1b191c;
+      --muted: #898989;
+      --blue: #4a5f80;
+      --brand: #1b191c;
+      --fire: #8a5a2b;
+      --high: #9b2335;
+      --ok: #2f6f4e;
+      --ink: rgba(27, 25, 28, 0.75);
+      --ice: #eef3f7;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); overflow-x: hidden; }
+    body {
+      font: 16px/1.45 "Inter Tight", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background:
+        radial-gradient(1200px 520px at 50% -80px, var(--ice), transparent 70%),
+        var(--bg);
+      min-height: 100%;
+    }
+    a { color: var(--blue); }
+
+    
+    .site-header { padding: 20px 20px 0; box-sizing: border-box; }
+    .site-nav {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 16px;
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
+    .site-nav .brand {
+      font-weight: 500;
+      letter-spacing: -0.04em;
+      font-size: 17px;
+      color: var(--text);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .site-nav .brand span { color: var(--blue); font-weight: 400; }
+    .site-nav .links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px 22px;
+    }
+    .site-nav .links a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+    .site-nav .links a:hover { opacity: 0.7; }
+    .site-nav .links a[aria-current="page"] { color: var(--blue); }
+    .site-nav .nav-end { justify-self: end; }
+    .site-nav .nav-cta {
+      display: inline-block;
+      background: var(--ink);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 16px;
+      padding: 10px 14px 9px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .site-nav .nav-cta:hover { background: #1b191c; color: #fff; }
+    .prose { max-width: 820px; margin: 0 auto; padding: 48px 24px 80px; }
+    .prose h1 { font-size: clamp(36px, 6vw, 64px); font-weight: 400; letter-spacing: -0.04em; line-height: 0.96; margin: 12px 0 16px; }
+    .prose h2 { font-size: clamp(22px, 3vw, 36px); font-weight: 400; letter-spacing: -0.03em; margin: 40px 0 14px; }
+    .prose h3 { font-size: 22px; font-weight: 400; letter-spacing: -0.03em; margin: 28px 0 10px; }
+    .prose p, .prose li { color: var(--text); font-size: 17px; line-height: 1.45; }
+    .prose em { color: var(--muted); }
+    .prose code, .prose pre {
+      font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 13px;
+    }
+    .prose code {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 6px;
+      padding: 1px 5px;
+    }
+    .prose pre {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 16px;
+      padding: 16px 18px; overflow-x: auto;
+    }
+    .prose pre code { background: none; border: 0; padding: 0; }
+    .prose table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; margin: 16px 0 24px; }
+    .prose th, .prose td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    .prose th { color: var(--muted); font-size: 12px; letter-spacing: -0.02em; font-weight: 500; }
+    .prose ul, .prose ol { padding-left: 1.2em; }
+    .prose li { margin: 8px 0; }
+    .prose hr { border: 0; border-top: 1px solid var(--line); margin: 36px 0; }
+    .kicker { color: var(--blue); letter-spacing: 0.02em; font-size: 13px; font-weight: 500; }
+    .mono { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 13px; }
+    .prose .kicker { color: var(--blue); }
+    @media (max-width: 700px) {
+      .site-nav { display: flex; flex-wrap: wrap; width: auto; }
+      .site-nav .links { width: 100%; justify-content: flex-start; }
+      .site-nav .nav-end { display: none; }
+    }
+
+    
+  </style>
+</head>
+<body>
+  <header class="site-header"><nav class="site-nav">
+    <a class="brand" href="../index.html">Proposal <span>Risk</span></a>
+    <div class="links">
+      <a href="../compare/index.html">Compare</a>
+      <a href="../projects/index.html">Catalog</a>
+      <a href="../research/index.html" aria-current="page">Research</a>
+    </div>
+    <div class="nav-end"><a class="nav-cta" href="https://github.com/iamoberlin/01R">GitHub</a></div>
+  </nav></header>
+  <article class="prose"><h1>Engineering — stack, API, fingerprints</h1>
+<p>Inferred from public repos, docs, and HTTP. The platform itself is closed-source.</p>
+<h2>Stack</h2>
+<ul>
+<li><strong>App</strong>: Next.js App Router 16.x, React 19, TypeScript, Tailwind 4, Recharts. www is client-rendered (copy lives in RSC flight chunks). i18n + ICU plurals. OAuth at <code>/oauth/login</code>. OG snapshots at <code>/api/share/snapshot</code>.</li>
+<li><strong>API</strong>: <code>api.01resolved.com/v1</code>, <code>x-api-key</code>, Partner 600 req/min. Keys by Telegram DM — no self-serve. Envelope <code>{meta, data}</code>. Express-style 404s (<code>Cannot GET /path</code>), Helmet CSP, Cloudflare in front.</li>
+<li><strong>Hosting</strong>: www via CloudFront + Cloudflare (not Vercel). Public microsite repo deploys to Vercel (Netlify config as fallback).</li>
+<li><strong>Content</strong>: Ghost blog; Mintlify-style MDX at <code>01Resolved/docs</code>.</li>
+<li><strong>Culture</strong>: CLAUDE.md, AGENTS.md, <code>.claude/</code> — they already work with Claude Code. No tests visible in public repos. CI is secret-sync.</li>
+</ul>
+<h2>Who built it</h2>
+<p>The snapshot client still pointed at <code>https://01resolved.var-meta.com/api/v1</code> (Vietnamese IP). A May 26 docs commit moved <code>/api/v1/</code> → <code>/v1/</code> for production. <strong>VAR META</strong> (~50 engineers, Hanoi / Da Nang) built the backend. Lead engineer here means bringing that codebase in-house.</p>
+<p><strong>Dune</strong> is a second source: the snapshot microsite caches Dune queries (2h refresh) for protocol metrics (e.g. Omnipair) alongside their Treasury Intelligence API.</p>
+<p>James also uses Radix/shadcn, framer-motion, TanStack Query, wagmi/viem (EVM fluency) in other repos. Upstream: <code>metaDAOproject/programs</code> (Anchor).</p>
+<h2>API surface (~86 GET endpoints)</h2>
+<p>No POST/webhook/stream yet — alerting is Telegram-only.</p>
+<ul>
+<li><strong>Overview (17)</strong> — project, legal entity, token supply, performance package, tranche ladder, unlocks, ICO contributors / investors.</li>
+<li><strong>Financials (11)</strong> — treasury overview (NAV/AS, runway), wallets, allocation, revenues, expenses, timeline.</li>
+<li><strong>Movements (21)</strong> — OpenBooks: account registry (onchain <em>and</em> offchain balances), counterparties, movements, categories, CSV export.</li>
+<li><strong>Proposals (26)</strong> — orders, pass-edge, conviction, traders, comparables, cross-project wallet activity.</li>
+<li><strong>Global (11)</strong> — decision-market dashboard, <code>projects-launch</code> (one call = whole market), recent/completed/graveyard launches, search.</li>
+</ul>
+<p>Slug vs <code>project</code> params are inconsistent across groups — organic growth; a v2 coherence pass is the obvious first cleanup.</p>
+<h2>Tracked slugs</h2>
+<p>Ownership coins: metadao (META), avici, solomon (SOLO), p2p-protocol, umbra, omnipair (OMFG), loyal, jurassic-finance (RAWR), paystream (PAYS), zklsol (ZKFG), superclaw, futardio-cult, rip-cars, credible, kimia, ordr.trade, laso-finance, areal-finance, basket, gesim, kollan-house, kyros, coal.</p>
+<p>Established DAOs: jito-dao, sanctum, drift, marinade, save-dao, island-dao, mtncapital, ore, ranger (liquidated), flash-trade (winding down), futuredao.</p>
+<p>Shipped catalog: <code>src/projects.js</code>.</p>
+<h2>Rough edges</h2>
+<ul>
+<li><code>/treasury-intelligence</code> returned HTTP 500 (12 Aug 2026).</li>
+<li>Manual API keys. Client-rendered marketing pages (SEO sits on Ghost).</li>
+<li>Public Ownership Score disputes. Default HTTP clients 403 even on the blog (scrape with a browser UA). First Wayback crawl of the site: 7 Jan 2026.</li>
+</ul></article>
+    <div class="prose" style="padding-top:0"><p><a href="index.html">All research</a></p></div>
+  
+</body>
+</html>
