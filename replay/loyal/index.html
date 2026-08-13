@@ -137,6 +137,12 @@
     .prose ul, .prose ol { padding-left: 1.2em; }
     .prose li { margin: 8px 0; }
     .prose hr { border: 0; border-top: 1px solid var(--line); margin: 36px 0; }
+    .legal-foot {
+      max-width: 920px; margin: 48px auto 0; padding: 32px 24px 64px;
+      border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; line-height: 1.5;
+    }
+    .legal-foot p { margin: 0 0 12px; }
+    .legal-foot strong { color: var(--text); font-weight: 500; }
     .kicker { color: var(--blue); letter-spacing: 0.02em; font-size: 13px; font-weight: 500; }
     .mono { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 13px; }
     .prose .kicker { color: var(--blue); }
@@ -161,20 +167,24 @@
   <div class="wrap">
     <div class="kicker">Proposal Risk · loyal</div>
     <h1>Proposal risk replay</h1>
-    <p class="sub">Loyal proposal <span class="mono">loyal-team-allowance-not-a-chain-pubkey</span> · trader TeamOps…vault</p>
+    <p class="sub">Loyal · <span class="mono">LOYAL-003</span></p>
 
     <div class="banner">
       <strong>Classification: LOW</strong>
-      — 0/5 attack-pattern signals fired.
+      — 0/0 attack-pattern signals fired.
       
     </div>
 
     <div class="hero">
-      <div class="stat"><div class="lbl">Pass TWAP</div><div class="val">$1.0400</div></div>
+      <div class="stat"><div class="lbl">Treasury (31 Jul 2026)</div><div class="val">$339,075</div></div>
+      <div class="stat"><div class="lbl">Spot</div><div class="val">$0.1050</div></div>
+      <div class="stat"><div class="lbl">NAV/AS</div><div class="val">$0.1300</div></div>
+      <div class="stat"><div class="lbl">Prem / disc</div><div class="val">-16.40%</div></div>
+      <div class="stat"><div class="lbl">Pass TWAP</div><div class="val">$1.0250</div></div>
       <div class="stat"><div class="lbl">Fail TWAP</div><div class="val">$1.0000</div></div>
-      <div class="stat"><div class="lbl">Fail-by margin</div><div class="val fire">-2.00%</div></div>
+      <div class="stat"><div class="lbl">Fail-by margin</div><div class="val fire">-1.00%</div></div>
       
-      <div class="stat"><div class="lbl">Requested</div><div class="val">$40K</div></div>
+      <div class="stat"><div class="lbl">Requested</div><div class="val">$182K</div></div>
       <div class="stat"><div class="lbl">Volume tilt</div><div class="val">pass-aligned</div></div>
     </div>
 
@@ -182,11 +192,11 @@
     <div class="grid2">
       <div class="panel">
         <div class="formula">pass edge = ((passTWAP − failTWAP) / failTWAP) × 100</div>
-        <p class="mono">+4.00% against +2.00% threshold</p>
+        <p class="mono">+2.50% against +1.50% threshold</p>
       </div>
       <div class="panel">
         <div class="formula">Net Pass Volume Tilt = [(PassBuy + FailSell) − (PassSell + FailBuy)] / vol</div>
-        <p class="mono">0.6000 · ~80% pass-aligned / ~20% fail-aligned</p>
+        <p class="mono">0.4800 · ~74% pass-aligned / ~26% fail-aligned</p>
       </div>
     </div>
 
@@ -194,41 +204,19 @@
     <table>
       <thead><tr><th>Flag</th><th>Signal</th><th>Evidence</th></tr></thead>
       <tbody>
-        <tr class="clear">
-        <td><span class="pill clear">clear</span></td>
-        <td>Fresh wallet with no prior history</td>
-        <td>first seen 200.8d before proposal; prior history=true</td>
-      </tr>
-<tr class="clear">
-        <td><span class="pill clear">clear</span></td>
-        <td>Cross-chain / bridge funding</td>
-        <td>no cross-chain or bridge funding</td>
-      </tr>
-<tr class="clear">
-        <td><span class="pill clear">clear</span></td>
-        <td>Accumulation trimmed to exact proposal-stake threshold</td>
-        <td>bought 500,000, sold 0, final 500,000 vs required 500,000</td>
-      </tr>
-<tr class="clear">
-        <td><span class="pill clear">clear</span></td>
-        <td>Stake recovered and reused in the decision market</td>
-        <td>recovered after 259200s; reusedInDecisionMarket=false</td>
-      </tr>
-<tr class="clear">
-        <td><span class="pill clear">clear</span></td>
-        <td>Clustered fixed-size cadence trades</td>
-        <td>no fixed-size cadence cluster</td>
-      </tr>
+        
       </tbody>
     </table>
 
     
 
-    <footer>
-      Contrast fixture for Loyal — not a published 01Resolved forensics case.
-      Replay is offline and deterministic — no API key required.
-      Numbers are baked into the markup.
-    </footer>
+    <p class="sub">Source: <span class="mono">research/raw/ownership-monthly-july-2026.txt</span> as of 2026-07-31.</p>
+    <footer class="legal-foot">
+    <p><strong>Proposal Risk</strong> is an independent research demonstration. It is not affiliated with, sponsored by, or endorsed by 01Resolved, MetaDAO, or any issuer named herein.</p>
+    <p>Figures are reproduced from publicly cited 01Resolved publications (Ownership Coin Monthly, July 2026, as of 31 July 2026, and the Umbra treasury-attack forensics of 5 August 2026) and from the research notes in this repository. NAV/AS values are <em>estimates</em> as labeled by the original compilers. Decision-market TWAPs are shown only when a published outcome exists. Spot prices in the July table were attributed to CoinGecko by 01Resolved.</p>
+    <p><strong>Important financial disclaimer.</strong> This material is for informational and educational purposes only. It is not an offer, solicitation, or recommendation to buy, sell, or hold any digital asset, security, token, or other financial instrument. It is not investment, legal, tax, or accounting advice. Past decision-market outcomes, treasury balances, and NAV premiums or discounts are not indicative of future results. Digital assets are volatile and may lose all value. You should not rely on this site to make investment or treasury decisions. No representation or warranty is made as to accuracy, completeness, or fitness for a particular purpose. Proposal Risk is not registered as an investment adviser, broker-dealer, or commodity trading advisor.</p>
+    <p>© 2026 Proposal Risk. All rights reserved. Live: <a href="https://iamoberlin.github.io/">https://iamoberlin.github.io/</a> · Source: <a href="https://github.com/iamoberlin/01R">https://github.com/iamoberlin/01R</a>.</p>
+  </footer>
   </div>
 </body>
 </html>

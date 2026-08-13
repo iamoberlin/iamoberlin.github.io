@@ -110,6 +110,12 @@
     .prose ul, .prose ol { padding-left: 1.2em; }
     .prose li { margin: 8px 0; }
     .prose hr { border: 0; border-top: 1px solid var(--line); margin: 36px 0; }
+    .legal-foot {
+      max-width: 920px; margin: 48px auto 0; padding: 32px 24px 64px;
+      border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; line-height: 1.5;
+    }
+    .legal-foot p { margin: 0 0 12px; }
+    .legal-foot strong { color: var(--text); font-weight: 500; }
     .kicker { color: var(--blue); letter-spacing: 0.02em; font-size: 13px; font-weight: 500; }
     .mono { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 13px; }
     .prose .kicker { color: var(--blue); }
@@ -219,7 +225,7 @@
   <div class="prose">
       <div class="kicker">Tracked protocols</div>
       <h1>Catalog</h1>
-      <p>34 slugs from their public API docs. Score any of them with <span class="mono">node src/replay.js --json proposal.json</span>. Live 01Resolved keys stay Telegram-gated.</p>
+      <p>34 slugs from their public API docs. Treasury rows are the 31 July 2026 01Resolved monthly. Decision-market TWAPs appear only when published.</p>
       <div class="cards"><a class="card" href="metadao.html">
         <div class="idx">metadao</div>
         <h3>MetaDAO</h3>
@@ -230,19 +236,19 @@
         <div class="idx">avici</div>
         <h3>Avici</h3>
         <p class="meta">ownership-coin · live</p>
-        <div class="pill-row"><span class="tag">catalog only</span></div>
+        <div class="pill-row"><span class="tag">has replay</span></div>
       </a>
 <a class="card" href="solomon.html">
         <div class="idx">solomon</div>
         <h3>Solomon</h3>
         <p class="meta">ownership-coin · live · SOLO</p>
-        <div class="pill-row"><span class="tag">catalog only</span></div>
+        <div class="pill-row"><span class="tag">has replay</span></div>
       </a>
 <a class="card" href="p2p-protocol.html">
         <div class="idx">p2p-protocol</div>
         <h3>P2P Protocol</h3>
         <p class="meta">ownership-coin · live</p>
-        <div class="pill-row"><span class="tag">catalog only</span></div>
+        <div class="pill-row"><span class="tag">has replay</span></div>
       </a>
 <a class="card" href="umbra.html">
         <div class="idx">umbra</div>
@@ -254,7 +260,7 @@
         <div class="idx">omnipair</div>
         <h3>Omnipair</h3>
         <p class="meta">ownership-coin · live · OMFG</p>
-        <div class="pill-row"><span class="tag">catalog only</span></div>
+        <div class="pill-row"><span class="tag">has replay</span></div>
       </a>
 <a class="card" href="loyal.html">
         <div class="idx">loyal</div>
@@ -266,97 +272,97 @@
         <div class="idx">jurassic-finance</div>
         <h3>Jurassic</h3>
         <p class="meta">ownership-coin · live · RAWR</p>
-        <div class="pill-row"><span class="tag">catalog only</span></div>
+        <div class="pill-row"><span class="tag">has replay</span></div>
       </a>
 <a class="card" href="paystream.html">
         <div class="idx">paystream</div>
         <h3>Paystream</h3>
         <p class="meta">ownership-coin · live · PAYS</p>
-        <div class="pill-row"><span class="tag">catalog only</span></div>
+        <div class="pill-row"><span class="tag">has replay</span></div>
       </a>
 <a class="card" href="zklsol.html">
         <div class="idx">zklsol</div>
         <h3>ZKFG / Zinc</h3>
         <p class="meta">ownership-coin · dissolved · ZKFG</p>
-        <div class="pill-row"><span class="tag">catalog only</span></div>
+        <div class="pill-row"><span class="tag">has replay</span></div>
       </a>
 <a class="card" href="superclaw.html">
         <div class="idx">superclaw</div>
         <h3>Superclaw</h3>
         <p class="meta">ownership-coin · live</p>
-        <div class="pill-row"><span class="tag">catalog only</span></div>
+        <div class="pill-row"><span class="tag">has replay</span></div>
       </a>
 <a class="card" href="futardio-cult.html">
         <div class="idx">futardio-cult</div>
         <h3>Futardio Cult</h3>
         <p class="meta">ownership-coin · live</p>
-        <div class="pill-row"><span class="tag">catalog only</span></div>
+        <div class="pill-row"><span class="tag">has replay</span></div>
       </a>
 <a class="card" href="rip-cars.html">
         <div class="idx">rip-cars</div>
         <h3>Rip Cars</h3>
         <p class="meta">ownership-coin · live</p>
-        <div class="pill-row"><span class="tag">catalog only</span></div>
+        <div class="pill-row"><span class="tag">has replay</span></div>
       </a>
 <a class="card" href="credible.html">
         <div class="idx">credible</div>
         <h3>Credible</h3>
         <p class="meta">ownership-coin · live</p>
-        <div class="pill-row"><span class="tag">catalog only</span></div>
+        <div class="pill-row"><span class="tag">has replay</span></div>
       </a>
 <a class="card" href="kimia.html">
         <div class="idx">kimia</div>
         <h3>Kimia</h3>
         <p class="meta">ownership-coin · live</p>
-        <div class="pill-row"><span class="tag">catalog only</span></div>
+        <div class="pill-row"><span class="tag">has replay</span></div>
       </a>
 <a class="card" href="ordr.trade.html">
         <div class="idx">ordr.trade</div>
         <h3>Ordr</h3>
         <p class="meta">ownership-coin · live</p>
-        <div class="pill-row"><span class="tag">catalog only</span></div>
+        <div class="pill-row"><span class="tag">has replay</span></div>
       </a>
 <a class="card" href="laso-finance.html">
         <div class="idx">laso-finance</div>
         <h3>Laso</h3>
         <p class="meta">ownership-coin · live</p>
-        <div class="pill-row"><span class="tag">catalog only</span></div>
+        <div class="pill-row"><span class="tag">has replay</span></div>
       </a>
 <a class="card" href="areal-finance.html">
         <div class="idx">areal-finance</div>
         <h3>Areal</h3>
         <p class="meta">ownership-coin · live</p>
-        <div class="pill-row"><span class="tag">catalog only</span></div>
+        <div class="pill-row"><span class="tag">has replay</span></div>
       </a>
 <a class="card" href="basket.html">
         <div class="idx">basket</div>
         <h3>Basket</h3>
         <p class="meta">ownership-coin · live</p>
-        <div class="pill-row"><span class="tag">catalog only</span></div>
+        <div class="pill-row"><span class="tag">has replay</span></div>
       </a>
 <a class="card" href="gesim.html">
         <div class="idx">gesim</div>
         <h3>Gesim</h3>
         <p class="meta">ownership-coin · live</p>
-        <div class="pill-row"><span class="tag">catalog only</span></div>
+        <div class="pill-row"><span class="tag">has replay</span></div>
       </a>
 <a class="card" href="kollan-house.html">
         <div class="idx">kollan-house</div>
         <h3>Kollan House</h3>
         <p class="meta">ownership-coin · live</p>
-        <div class="pill-row"><span class="tag">catalog only</span></div>
+        <div class="pill-row"><span class="tag">has replay</span></div>
       </a>
 <a class="card" href="kyros.html">
         <div class="idx">kyros</div>
         <h3>Kyros</h3>
         <p class="meta">ownership-coin · live</p>
-        <div class="pill-row"><span class="tag">catalog only</span></div>
+        <div class="pill-row"><span class="tag">has replay</span></div>
       </a>
 <a class="card" href="coal.html">
         <div class="idx">coal</div>
         <h3>Coal</h3>
         <p class="meta">ownership-coin · live</p>
-        <div class="pill-row"><span class="tag">catalog only</span></div>
+        <div class="pill-row"><span class="tag">has replay</span></div>
       </a>
 <a class="card" href="jito-dao.html">
         <div class="idx">jito-dao</div>
@@ -368,63 +374,69 @@
         <div class="idx">sanctum</div>
         <h3>Sanctum</h3>
         <p class="meta">established-dao · live</p>
-        <div class="pill-row"><span class="tag">catalog only</span></div>
+        <div class="pill-row"><span class="tag">has replay</span></div>
       </a>
 <a class="card" href="drift.html">
         <div class="idx">drift</div>
         <h3>Drift</h3>
         <p class="meta">established-dao · live</p>
-        <div class="pill-row"><span class="tag">catalog only</span></div>
+        <div class="pill-row"><span class="tag">has replay</span></div>
       </a>
 <a class="card" href="marinade.html">
         <div class="idx">marinade</div>
         <h3>Marinade</h3>
         <p class="meta">established-dao · live</p>
-        <div class="pill-row"><span class="tag">catalog only</span></div>
+        <div class="pill-row"><span class="tag">has replay</span></div>
       </a>
 <a class="card" href="save-dao.html">
         <div class="idx">save-dao</div>
         <h3>Save</h3>
         <p class="meta">established-dao · live</p>
-        <div class="pill-row"><span class="tag">catalog only</span></div>
+        <div class="pill-row"><span class="tag">has replay</span></div>
       </a>
 <a class="card" href="island-dao.html">
         <div class="idx">island-dao</div>
         <h3>Island</h3>
         <p class="meta">established-dao · live</p>
-        <div class="pill-row"><span class="tag">catalog only</span></div>
+        <div class="pill-row"><span class="tag">has replay</span></div>
       </a>
 <a class="card" href="mtncapital.html">
         <div class="idx">mtncapital</div>
         <h3>Mtn Capital</h3>
         <p class="meta">established-dao · live</p>
-        <div class="pill-row"><span class="tag">catalog only</span></div>
+        <div class="pill-row"><span class="tag">has replay</span></div>
       </a>
 <a class="card" href="ore.html">
         <div class="idx">ore</div>
         <h3>Ore</h3>
         <p class="meta">established-dao · live</p>
-        <div class="pill-row"><span class="tag">catalog only</span></div>
+        <div class="pill-row"><span class="tag">has replay</span></div>
       </a>
 <a class="card" href="ranger.html">
         <div class="idx">ranger</div>
         <h3>Ranger Finance</h3>
         <p class="meta">established-dao · liquidated</p>
-        <div class="pill-row"><span class="tag">catalog only</span></div>
+        <div class="pill-row"><span class="tag">has replay</span></div>
       </a>
 <a class="card" href="flash-trade.html">
         <div class="idx">flash-trade</div>
         <h3>Flash Trade</h3>
         <p class="meta">established-dao · winding-down</p>
-        <div class="pill-row"><span class="tag">catalog only</span></div>
+        <div class="pill-row"><span class="tag">has replay</span></div>
       </a>
 <a class="card" href="futuredao.html">
         <div class="idx">futuredao</div>
         <h3>FutureDAO</h3>
         <p class="meta">established-dao · live</p>
-        <div class="pill-row"><span class="tag">catalog only</span></div>
+        <div class="pill-row"><span class="tag">has replay</span></div>
       </a></div>
     </div>
+    <footer class="legal-foot">
+    <p><strong>Proposal Risk</strong> is an independent research demonstration. It is not affiliated with, sponsored by, or endorsed by 01Resolved, MetaDAO, or any issuer named herein.</p>
+    <p>Figures are reproduced from publicly cited 01Resolved publications (Ownership Coin Monthly, July 2026, as of 31 July 2026, and the Umbra treasury-attack forensics of 5 August 2026) and from the research notes in this repository. NAV/AS values are <em>estimates</em> as labeled by the original compilers. Decision-market TWAPs are shown only when a published outcome exists. Spot prices in the July table were attributed to CoinGecko by 01Resolved.</p>
+    <p><strong>Important financial disclaimer.</strong> This material is for informational and educational purposes only. It is not an offer, solicitation, or recommendation to buy, sell, or hold any digital asset, security, token, or other financial instrument. It is not investment, legal, tax, or accounting advice. Past decision-market outcomes, treasury balances, and NAV premiums or discounts are not indicative of future results. Digital assets are volatile and may lose all value. You should not rely on this site to make investment or treasury decisions. No representation or warranty is made as to accuracy, completeness, or fitness for a particular purpose. Proposal Risk is not registered as an investment adviser, broker-dealer, or commodity trading advisor.</p>
+    <p>© 2026 Proposal Risk. All rights reserved. Live: <a href="https://iamoberlin.github.io/">https://iamoberlin.github.io/</a> · Source: <a href="https://github.com/iamoberlin/01R">https://github.com/iamoberlin/01R</a>.</p>
+  </footer>
   
 </body>
 </html>

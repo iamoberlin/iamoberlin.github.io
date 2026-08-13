@@ -1,7 +1,7 @@
 /**
  * Browser compare UI. Expects window.COMPARE_DATA and four chart mounts.
  */
-import { failByChart, passEdgeChart, signalChart, tiltChart } from "./charts.js";
+import { failByChart, passEdgeChart, premiumChart, signalChart, tiltChart, treasuryChart } from "./charts.js";
 
 function selectedIds() {
   return [...document.querySelectorAll("[data-protocol-option]:checked")].map((el) => el.value);
@@ -14,15 +14,21 @@ function setStatus(text) {
 
 function renderCharts(rows) {
   const mounts = {
-    edge: passEdgeChart,
-    signals: signalChart,
-    tilt: tiltChart,
-    failby: failByChart,
+    treasury: (set) => treasuryChart(set.filter((row) => row.treasuryUsd != null)),
+    premium: (set) => premiumChart(set.filter((row) => row.premiumPct != null)),
+    edge: (set) => passEdgeChart(set.filter((row) => row.passEdge != null)),
+    signals: (set) => signalChart(set.filter((row) => row.signalCount > 0 || row.kind === "published")),
+    tilt: (set) => tiltChart(set.filter((row) => row.passAlignedShare != null)),
+    failby: (set) => failByChart(set.filter((row) => row.failByMargin != null)),
   };
   for (const [key, draw] of Object.entries(mounts)) {
     const node = document.querySelector(`[data-chart-mount="${key}"]`);
     if (!node) continue;
-    node.innerHTML = rows.length ? draw(rows) : "<p class='compare-empty'>Select at least one scored protocol.</p>";
+    const series = draw(rows);
+    const empty = !rows.length || (typeof series === "string" && !series.includes("data-series"));
+    node.innerHTML = empty
+      ? "<p class='compare-empty'>No published series for this chart in the current selection.</p>"
+      : series;
   }
 
   const list = document.querySelector("[data-selected-cards]");

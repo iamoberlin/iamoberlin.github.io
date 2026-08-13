@@ -33,6 +33,10 @@ export function serializeReplay(entry) {
     treasuryShare: result.treasuryShare,
     passTWAP: result.passTWAP,
     failTWAP: result.failTWAP,
+    treasuryUsd: result.snapshot?.treasuryUsd ?? null,
+    premiumPct: result.snapshot?.premiumPct ?? null,
+    navAsUsd: result.snapshot?.navAsUsd ?? null,
+    spotUsd: result.snapshot?.spotUsd ?? null,
     replayHref: `replay/${entry.name}/index.html`,
   };
 }
@@ -70,7 +74,12 @@ export function barChart(opts) {
       const y = padT + i * rowH;
       const w = max === 0 ? 0 : (Math.abs(row.value) / max) * inner;
       const color = row.color || colorFor(i);
-      const label = opts.unit === "%" ? `${row.value.toFixed(2)}%` : String(row.value);
+      const label =
+        typeof opts.format === "function"
+          ? opts.format(row.value)
+          : opts.unit === "%"
+            ? `${Number(row.value).toFixed(2)}%`
+            : String(row.value);
       return `<g data-series="${esc(row.id || row.label)}" data-value="${row.value}">
         <text x="0" y="${y + 18}" fill="#1b191c" font-size="13">${esc(row.label)}</text>
         <rect x="${padL}" y="${y + 6}" width="${Math.max(w, 0)}" height="16" rx="4" fill="${color}"></rect>
@@ -173,6 +182,34 @@ export function failByChart(rows) {
       label: row.name || row.id,
       value: row.failByMargin,
       color: colorFor(i),
+    })),
+  });
+}
+
+export function treasuryChart(rows) {
+  const series = rows.filter((row) => row.treasuryUsd != null);
+  return barChart({
+    title: "Treasury value (31 Jul 2026)",
+    format: (n) => `$${(Number(n) / 1_000_000).toFixed(2)}M`,
+    rows: series.map((row, i) => ({
+      id: row.id,
+      label: row.name || row.id,
+      value: row.treasuryUsd,
+      color: colorFor(i),
+    })),
+  });
+}
+
+export function premiumChart(rows) {
+  const series = rows.filter((row) => row.premiumPct != null);
+  return barChart({
+    title: "Premium / discount to NAV",
+    unit: "%",
+    rows: series.map((row, i) => ({
+      id: row.id,
+      label: row.name || row.id,
+      value: row.premiumPct,
+      color: row.premiumPct < 0 ? "#9b2335" : colorFor(i),
     })),
   });
 }
