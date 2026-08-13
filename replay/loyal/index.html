@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Proposal Risk — Umbra</title>
+  <title>Proposal Risk — Loyal</title>
   <style>
     :root {
       --bg: #070b12;
@@ -30,9 +30,9 @@
     .stat .val { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 22px; margin-top: 4px; }
     .stat .val.high { color: var(--high); }
     .stat .val.fire { color: var(--fire); }
-    .banner { background: #2a1114; border-color: #5a1e24;
+    .banner { background: var(--panel);
       border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; margin-bottom: 24px; }
-    .banner strong { color: var(--high); }
+    .banner strong { color: var(--ok); }
     table { width: 100%; border-collapse: collapse; background: var(--panel); border-radius: 10px; overflow: hidden; }
     th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
     th { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
@@ -96,43 +96,43 @@
 </head>
 <body>
   <nav class="site-nav">
-    <a class="brand" href="../index.html">01<span>R</span></a>
+    <a class="brand" href="../../index.html">01<span>R</span></a>
     <div class="links">
-      <a href="../replay/index.html" aria-current="page">Replays</a>
-      <a href="../projects/index.html">Projects</a>
-      <a href="../research/index.html">Research</a>
+      <a href="../../replay/index.html" aria-current="page">Replays</a>
+      <a href="../../projects/index.html">Projects</a>
+      <a href="../../research/index.html">Research</a>
       <a href="https://github.com/iamoberlin/01R">GitHub</a>
     </div>
   </nav>
   <div class="wrap">
-    <div class="kicker">01Resolved · Proposal Risk · umbra</div>
+    <div class="kicker">01Resolved · Proposal Risk · loyal</div>
     <h1>Proposal risk replay</h1>
-    <p class="sub">Umbra proposal <span class="mono">8sysa3XPrvKPmUA4qoZCn9h4vp7Mb45Ynezg542nui8Q</span> · trader EJGW…Uvaxs</p>
+    <p class="sub">Loyal proposal <span class="mono">loyal-team-allowance-not-a-chain-pubkey</span> · trader TeamOps…vault</p>
 
     <div class="banner">
-      <strong>Classification: HIGH-RISK</strong>
-      — 5/5 attack-pattern signals fired.
-      Published asymmetry: $4,623 to swing at $1.5M.
+      <strong>Classification: LOW</strong>
+      — 0/5 attack-pattern signals fired.
+      
     </div>
 
     <div class="hero">
-      <div class="stat"><div class="lbl">Pass TWAP</div><div class="val">$0.2335</div></div>
-      <div class="stat"><div class="lbl">Fail TWAP</div><div class="val">$0.2798</div></div>
-      <div class="stat"><div class="lbl">Fail-by margin</div><div class="val fire">19.55%</div></div>
-      <div class="stat"><div class="lbl">Attacker cost</div><div class="val high">$4,623</div></div>
-      <div class="stat"><div class="lbl">Requested</div><div class="val">$1.5M</div></div>
-      <div class="stat"><div class="lbl">Volume tilt</div><div class="val">fail-aligned</div></div>
+      <div class="stat"><div class="lbl">Pass TWAP</div><div class="val">$1.0400</div></div>
+      <div class="stat"><div class="lbl">Fail TWAP</div><div class="val">$1.0000</div></div>
+      <div class="stat"><div class="lbl">Fail-by margin</div><div class="val fire">-2.00%</div></div>
+      
+      <div class="stat"><div class="lbl">Requested</div><div class="val">$40K</div></div>
+      <div class="stat"><div class="lbl">Volume tilt</div><div class="val">pass-aligned</div></div>
     </div>
 
     <h2>Decision-market math</h2>
     <div class="grid2">
       <div class="panel">
         <div class="formula">pass edge = ((passTWAP − failTWAP) / failTWAP) × 100</div>
-        <p class="mono">-16.55% against +3.00% threshold · published spread -16.56%</p>
+        <p class="mono">+4.00% against +2.00% threshold</p>
       </div>
       <div class="panel">
         <div class="formula">Net Pass Volume Tilt = [(PassBuy + FailSell) − (PassSell + FailBuy)] / vol</div>
-        <p class="mono">-0.0800 · ~46% pass-aligned / ~54% fail-aligned</p>
+        <p class="mono">0.6000 · ~80% pass-aligned / ~20% fail-aligned</p>
       </div>
     </div>
 
@@ -140,43 +140,38 @@
     <table>
       <thead><tr><th>Flag</th><th>Signal</th><th>Evidence</th></tr></thead>
       <tbody>
-        <tr class="fired">
-        <td><span class="pill fired">FIRE</span></td>
+        <tr class="clear">
+        <td><span class="pill clear">clear</span></td>
         <td>Fresh wallet with no prior history</td>
-        <td>first seen 4d before proposal; prior history=false</td>
+        <td>first seen 200.8d before proposal; prior history=true</td>
       </tr>
-<tr class="fired">
-        <td><span class="pill fired">FIRE</span></td>
+<tr class="clear">
+        <td><span class="pill clear">clear</span></td>
         <td>Cross-chain / bridge funding</td>
-        <td>deBridge from base; $148,930</td>
+        <td>no cross-chain or bridge funding</td>
       </tr>
-<tr class="fired">
-        <td><span class="pill fired">FIRE</span></td>
+<tr class="clear">
+        <td><span class="pill clear">clear</span></td>
         <td>Accumulation trimmed to exact proposal-stake threshold</td>
-        <td>bought 508,690, sold 8,690, final 500,000 vs required 500,000</td>
+        <td>bought 500,000, sold 0, final 500,000 vs required 500,000</td>
       </tr>
-<tr class="fired">
-        <td><span class="pill fired">FIRE</span></td>
+<tr class="clear">
+        <td><span class="pill clear">clear</span></td>
         <td>Stake recovered and reused in the decision market</td>
-        <td>recovered after 8s; reusedInDecisionMarket=true</td>
+        <td>recovered after 259200s; reusedInDecisionMarket=false</td>
       </tr>
-<tr class="fired">
-        <td><span class="pill fired">FIRE</span></td>
+<tr class="clear">
+        <td><span class="pill clear">clear</span></td>
         <td>Clustered fixed-size cadence trades</td>
-        <td>40 × $100 trades, median interval 60s</td>
+        <td>no fixed-size cadence cluster</td>
       </tr>
       </tbody>
     </table>
 
     
-    <h2>Mechanism hardening (illustrative)</h2>
-    <div class="panel">
-      <p>A pass threshold that rises with treasury share (+3.00% + 20pp × 62%) = <span class="mono">+15.40%</span>.</p>
-      <p>The attacker’s intra-window spike printed +12.47%. Against the scaled threshold it would not have cleared.</p>
-    </div>
 
     <footer>
-      Source fixture: <span class="mono">research/raw/umbra-treasury-attack.txt</span> (James &amp; Drew, 01Resolved, 5 Aug 2026).
+      Contrast fixture for Loyal — not a published 01Resolved forensics case.
       Replay is offline and deterministic — no API key required.
       Numbers are baked into the markup.
     </footer>

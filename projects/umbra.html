@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>01R — Proposal Risk</title>
+  <title>Umbra — 01R</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
@@ -120,127 +120,27 @@
 </head>
 <body>
   <nav class="site-nav">
-    <a class="brand" href="index.html">01<span>R</span></a>
+    <a class="brand" href="../index.html">01<span>R</span></a>
     <div class="links">
-      <a href="replay/index.html">Replays</a>
-      <a href="projects/index.html">Projects</a>
-      <a href="research/index.html">Research</a>
+      <a href="../replay/index.html">Replays</a>
+      <a href="../projects/index.html" aria-current="page">Projects</a>
+      <a href="../research/index.html">Research</a>
       <a href="https://github.com/iamoberlin/01R">GitHub</a>
     </div>
   </nav>
-  
-  <div class="hero-block">
-    <div class="kicker">01Resolved · MetaDAO + tracked DAOs</div>
-    <h1>Proposal Risk</h1>
-    <p class="lede">The same decision-market math and attack-pattern signals, on any 01Resolved project — not an Umbra-only stub. Umbra is the published HIGH-RISK case. MetaDAO, Jito, and Loyal are routine contrast fixtures that score LOW.</p>
-    <div class="banner">
-      <strong class="high">Umbra · HIGH-RISK</strong>
-      — 5/5 signals fired.
-      Published asymmetry: $4,623 to swing at $1.5M.
-    </div>
-    <div class="stats">
-      <div class="stat"><div class="lbl">Pass TWAP</div><div class="val">$0.2335</div></div>
-      <div class="stat"><div class="lbl">Fail TWAP</div><div class="val">$0.2798</div></div>
-      <div class="stat"><div class="lbl">Fail-by margin</div><div class="val fire">19.55%</div></div>
-      <div class="stat"><div class="lbl">Attacker cost</div><div class="val high">$4,623</div></div>
-      <div class="stat"><div class="lbl">Requested</div><div class="val">$1.5M</div></div>
-      <div class="stat"><div class="lbl">Tracked projects</div><div class="val">34</div></div>
-    </div>
-    <div class="cta-row">
-      <a class="btn primary" href="umbra/index.html">Open Umbra replay</a>
-      <a class="btn ghost" href="replay/metadao/index.html">MetaDAO contrast</a>
-      <a class="btn ghost" href="projects/index.html">31 live projects</a>
-    </div>
-  </div>
-  <div class="section">
-    <h2>Scored replays</h2>
-    <div class="cards"><a class="card" href="replay/umbra/index.html">
+  <div class="prose">
+      <div class="kicker">umbra</div>
+      <h1>Umbra</h1>
+      <p>ownership-coin · live · token UMBRA</p>
+      <p>Default thresholds (MetaDAO launch template): team -3%, non-team +3%.</p>
+      <h2>Replays</h2>
+      <div class="cards"><a class="card" href="../replay/umbra/index.html">
         <div class="idx">umbra</div>
         <h3>Umbra</h3>
         <p class="meta">Published forensics · non-team</p>
         <div class="pill-row"><span class="tag high">HIGH-RISK</span><span class="tag">5/5 signals</span></div>
-      </a>
-<a class="card" href="replay/metadao/index.html">
-        <div class="idx">metadao</div>
-        <h3>MetaDAO</h3>
-        <p class="meta">Contrast fixture · team</p>
-        <div class="pill-row"><span class="tag ok">LOW</span><span class="tag">0/5 signals</span></div>
-      </a>
-<a class="card" href="replay/jito/index.html">
-        <div class="idx">jito-dao</div>
-        <h3>Jito</h3>
-        <p class="meta">Contrast fixture · non-team</p>
-        <div class="pill-row"><span class="tag ok">LOW</span><span class="tag">0/5 signals</span></div>
-      </a>
-<a class="card" href="replay/loyal/index.html">
-        <div class="idx">loyal</div>
-        <h3>Loyal</h3>
-        <p class="meta">Contrast fixture · team</p>
-        <div class="pill-row"><span class="tag ok">LOW</span><span class="tag">0/5 signals</span></div>
       </a></div>
-  </div>
-  <div class="section">
-    <h2>Component signals</h2>
-    <div class="signals"><div class="signal"><div class="id">fresh-wallet</div><p>Fresh wallet with no prior history</p></div>
-<div class="signal"><div class="id">bridge-funding</div><p>Cross-chain / bridge funding</p></div>
-<div class="signal"><div class="id">exact-stake-trim</div><p>Accumulation trimmed to exact proposal-stake threshold</p></div>
-<div class="signal"><div class="id">stake-recover-reuse</div><p>Stake recovered and reused in the decision market</p></div>
-<div class="signal"><div class="id">clustered-cadence</div><p>Clustered fixed-size cadence trades</p></div></div>
-  </div>
-  <div class="section">
-    <h2>Decision-market math</h2>
-    <p style="color:var(--muted)">pass edge = ((passTWAP − failTWAP) / failTWAP) × 100 · -16.55% against +3.00% · published spread -16.56%.</p>
-    <p style="color:var(--muted)">Net Pass Volume Tilt uses economic alignment (pass-buy &amp; fail-sell vs pass-sell &amp; fail-buy): ~46% / ~54% · fail-aligned.</p>
-    <p style="color:var(--muted)">MetaDAO launch-template thresholds: team-sponsored −3%, non-team +3%. Any other project scores through <span class="mono">--json</span> — no live API key.</p>
-  </div>
-  <div class="section">
-    <h2>Research briefing</h2>
-    <p style="color:var(--muted)">Public notes on 01Resolved, MetaDAO, and the computational surface. Interview-only candidate-fit is not published here.</p>
-    <div class="cards"><a class="card" href="research/01-company-profile.html">
-        <div class="idx">01</div>
-        <h3>Company profile — 01Resolved</h3>
-      </a>
-<a class="card" href="research/02-market-metadao.html">
-        <div class="idx">02</div>
-        <h3>Market context — MetaDAO, futarchy, ownership coins</h3>
-      </a>
-<a class="card" href="research/03-tech-stack.html">
-        <div class="idx">03</div>
-        <h3>Technical read — what the stack looks like from outside</h3>
-      </a>
-<a class="card" href="research/04-lead-engineer-contributions.html">
-        <div class="idx">04</div>
-        <h3>What a lead engineer could contribute at 01Resolved</h3>
-      </a>
-<a class="card" href="research/05-risks-open-questions.html">
-        <div class="idx">05</div>
-        <h3>Risks &amp; open questions to probe</h3>
-      </a>
-<a class="card" href="research/06-sources.html">
-        <div class="idx">06</div>
-        <h3>Sources</h3>
-      </a>
-<a class="card" href="research/07-analytical-methods.html">
-        <div class="idx">07</div>
-        <h3>Pass 2 — 01Resolved&#39;s analytical machinery</h3>
-      </a>
-<a class="card" href="research/08-api-surface.html">
-        <div class="idx">08</div>
-        <h3>Pass 2 — Full API surface (api.01resolved.com/v1)</h3>
-      </a>
-<a class="card" href="research/09-timeline-ecosystem.html">
-        <div class="idx">09</div>
-        <h3>Pass 2 — Timeline, business signals, ecosystem health</h3>
-      </a>
-<a class="card" href="research/10-competitive-landscape.html">
-        <div class="idx">10</div>
-        <h3>Pass 2 — MetaDAO deep dive, adjacent venues, competitive landscape</h3>
-      </a></div>
-  </div>
-  <div class="foot">
-    Live at <span class="mono">https://iamoberlin.github.io/</span>.
-    Source: <a href="https://github.com/iamoberlin/01R">https://github.com/iamoberlin/01R</a>.
-    Replay is offline and deterministic — no API key required.
-  </div>
+      <p><a href="index.html">All projects</a></p>
+    </div>
 </body>
 </html>
