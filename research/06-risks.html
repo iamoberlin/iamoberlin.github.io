@@ -126,6 +126,90 @@
     }
 
     
+    .hero-block { max-width: 720px; margin: 0 auto; padding: 72px 24px 24px; text-align: center; }
+    .hero-block h1 {
+      font-size: clamp(36px, 8vw, 72px); font-weight: 400; letter-spacing: -0.04em;
+      line-height: 0.96; margin: 16px 0 24px;
+    }
+    .hero-block .lede { color: var(--muted); font-size: 18px; line-height: 1.35; max-width: 28em; margin: 0 auto 28px; }
+    .cta-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 24px 0 8px; }
+    .btn {
+      display: inline-block; padding: 16px 20px 14px; border-radius: 16px;
+      text-decoration: none; font-weight: 500; font-size: 15px; letter-spacing: -0.02em;
+    }
+    .btn.primary { background: var(--ink); color: #fff; }
+    .btn.primary:hover { background: #1b191c; color: #fff; }
+    .btn.ghost { background: rgba(255,255,255,0.75); color: var(--text); border: 1px solid var(--line); }
+    .btn.ghost:hover { background: #fff; }
+    .stats {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr));
+      gap: 12px; margin: 36px auto; max-width: 920px; text-align: left;
+    }
+    @media (max-width: 700px) {
+      .stats { grid-template-columns: 1fr 1fr; }
+      .hero-block { padding: 40px 20px 16px; }
+    }
+    .stat { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 18px 16px; }
+    .stat .lbl { color: var(--muted); font-size: 12px; }
+    .stat .val { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 20px; margin-top: 6px; letter-spacing: -0.03em; }
+    .stat .val.high { color: var(--high); }
+    .stat .val.fire { color: var(--fire); }
+    .banner {
+      background: #f7eef0; border: 1px solid #e4c9ce; border-radius: 16px;
+      padding: 18px 20px; margin: 8px auto 0; text-align: left; max-width: min(640px, 100%);
+      overflow-wrap: anywhere; word-break: break-word;
+    }
+    .banner.ok { background: var(--panel); border-color: var(--line); }
+    .banner strong.high { color: var(--high); font-weight: 500; }
+    .banner strong.ok { color: var(--ok); font-weight: 500; }
+    .section { max-width: 920px; margin: 0 auto; padding: 48px 24px 8px; }
+    .section h2 { font-size: clamp(28px, 4vw, 40px); font-weight: 400; letter-spacing: -0.03em; margin: 0 0 20px; }
+    .signals { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+    .signal { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 20px 18px; }
+    .signal .id { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 12px; color: var(--blue); }
+    .signal p { margin: 8px 0 0; color: var(--muted); font-size: 15px; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+    .card {
+      display: block; background: #fff; border: 1px solid var(--line);
+      border-radius: 16px; padding: 20px 18px; text-decoration: none; color: inherit;
+    }
+    .card:hover { background: var(--panel); }
+    .card .idx { color: var(--blue); font-size: 12px; letter-spacing: 0.02em; font-weight: 500; }
+    .card h3 { margin: 6px 0 0; font-size: 22px; font-weight: 400; letter-spacing: -0.03em; }
+    .card .meta { color: var(--muted); font-size: 14px; margin-top: 8px; }
+    .pill-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+    .tag { font-size: 11px; letter-spacing: 0.04em; border: 1px solid var(--line); border-radius: 999px; padding: 3px 8px; color: var(--muted); }
+    .tag.high { color: var(--high); border-color: #e4c9ce; }
+    .tag.ok { color: var(--ok); border-color: #cfe3d7; }
+    .foot { max-width: 920px; margin: 0 auto; padding: 48px 24px 80px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); }
+    .compare { max-width: 920px; margin: 0 auto; padding: 24px 24px 8px; }
+    .compare-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .picker { position: relative; }
+    .picker-toggle {
+      background: #fff; border: 1px solid var(--line); border-radius: 16px;
+      padding: 12px 16px; font: inherit; cursor: pointer; min-width: 220px; text-align: left;
+    }
+    .picker-panel {
+      position: absolute; z-index: 20; top: calc(100% + 8px); left: 0;
+      background: #fff; border: 1px solid var(--line); border-radius: 16px;
+      padding: 10px; min-width: 280px; max-height: 320px; overflow: auto;
+      box-shadow: 0 12px 40px rgba(27,25,28,0.08);
+    }
+    .picker-panel label {
+      display: flex; gap: 10px; align-items: flex-start; padding: 8px 10px; border-radius: 10px; cursor: pointer;
+    }
+    .picker-panel label:hover { background: var(--panel); }
+    .picker-panel .opt-name { display: block; }
+    .picker-panel .opt-meta { display: block; color: var(--muted); font-size: 12px; }
+    .picker-panel label.is-empty { opacity: 0.55; }
+    .compare-status { color: var(--muted); font-size: 14px; }
+    .chart-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    @media (min-width: 800px) { .chart-grid { grid-template-columns: 1fr 1fr; } }
+    .chart-card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 16px 16px 8px; }
+    .chart-card h3 { font-size: 16px; font-weight: 500; letter-spacing: -0.02em; margin: 0 0 8px; }
+    .compare-empty { color: var(--muted); font-size: 14px; }
+    .legend { color: var(--muted); font-size: 12px; margin: 0 0 12px; }
+  
   </style>
 </head>
 <body>
@@ -157,9 +241,10 @@
 <li>Formal MetaDAO partnership or data-access guarantee? Their X bio says “We’re hiring!” — they are staffing too.</li>
 <li>Is lead engineer hire #1? 12-month plan?</li>
 <li>Ownership Score disputes: their bug, MetaDAO’s, or multi-wallet attribution?</li>
-</ul></article>
-    <div class="prose" style="padding-top:0"><p><a href="index.html">All research</a></p></div>
-    <footer class="legal-foot">
+</ul>
+      <p><a href="index.html">All research</a></p>
+    </article>
+  <footer class="legal-foot">
     <p><strong>Proposal Risk</strong> is an independent research demonstration. It is not affiliated with, sponsored by, or endorsed by 01Resolved, MetaDAO, or any issuer named herein.</p>
     <p>Figures are reproduced from publicly cited 01Resolved publications (Ownership Coin Monthly, July 2026, as of 31 July 2026, and the Umbra treasury-attack forensics of 5 August 2026) and from the research notes in this repository. NAV/AS values are <em>estimates</em> as labeled by the original compilers. Decision-market TWAPs are shown only when a published outcome exists. Spot prices in the July table were attributed to CoinGecko by 01Resolved.</p>
     <p><strong>Important financial disclaimer.</strong> This material is for informational and educational purposes only. It is not an offer, solicitation, or recommendation to buy, sell, or hold any digital asset, security, token, or other financial instrument. It is not investment, legal, tax, or accounting advice. Past decision-market outcomes, treasury balances, and NAV premiums or discounts are not indicative of future results. Digital assets are volatile and may lose all value. You should not rely on this site to make investment or treasury decisions. No representation or warranty is made as to accuracy, completeness, or fitness for a particular purpose. Proposal Risk is not registered as an investment adviser, broker-dealer, or commodity trading advisor.</p>
