@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ore — 01R</title>
+  <title>Ore — Proposal Risk</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter+Tight:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
@@ -53,9 +53,10 @@
     .site-nav .brand {
       font-weight: 500;
       letter-spacing: -0.04em;
-      font-size: 18px;
+      font-size: 17px;
       color: var(--text);
       text-decoration: none;
+      white-space: nowrap;
     }
     .site-nav .brand span { color: var(--blue); font-weight: 400; }
     .site-nav .links {
@@ -175,15 +176,42 @@
     .tag.high { color: var(--high); border-color: #e4c9ce; }
     .tag.ok { color: var(--ok); border-color: #cfe3d7; }
     .foot { max-width: 920px; margin: 0 auto; padding: 48px 24px 80px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); }
+    .compare { max-width: 920px; margin: 0 auto; padding: 24px 24px 8px; }
+    .compare-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .picker { position: relative; }
+    .picker-toggle {
+      background: #fff; border: 1px solid var(--line); border-radius: 16px;
+      padding: 12px 16px; font: inherit; cursor: pointer; min-width: 220px; text-align: left;
+    }
+    .picker-panel {
+      position: absolute; z-index: 20; top: calc(100% + 8px); left: 0;
+      background: #fff; border: 1px solid var(--line); border-radius: 16px;
+      padding: 10px; min-width: 280px; max-height: 320px; overflow: auto;
+      box-shadow: 0 12px 40px rgba(27,25,28,0.08);
+    }
+    .picker-panel label {
+      display: flex; gap: 10px; align-items: flex-start; padding: 8px 10px; border-radius: 10px; cursor: pointer;
+    }
+    .picker-panel label:hover { background: var(--panel); }
+    .picker-panel .opt-name { display: block; }
+    .picker-panel .opt-meta { display: block; color: var(--muted); font-size: 12px; }
+    .picker-panel label.is-empty { opacity: 0.55; }
+    .compare-status { color: var(--muted); font-size: 14px; }
+    .chart-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    @media (min-width: 800px) { .chart-grid { grid-template-columns: 1fr 1fr; } }
+    .chart-card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 16px 16px 8px; }
+    .chart-card h3 { font-size: 16px; font-weight: 500; letter-spacing: -0.02em; margin: 0 0 8px; }
+    .compare-empty { color: var(--muted); font-size: 14px; }
+    .legend { color: var(--muted); font-size: 12px; margin: 0 0 12px; }
   
   </style>
 </head>
 <body>
   <header class="site-header"><nav class="site-nav">
-    <a class="brand" href="../index.html">01<span>R</span></a>
+    <a class="brand" href="../index.html">Proposal <span>Risk</span></a>
     <div class="links">
-      <a href="../replay/index.html">Replays</a>
-      <a href="../projects/index.html" aria-current="page">Projects</a>
+      <a href="../compare/index.html">Compare</a>
+      <a href="../projects/index.html" aria-current="page">Catalog</a>
       <a href="../research/index.html">Research</a>
     </div>
     <div class="nav-end"><a class="nav-cta" href="https://github.com/iamoberlin/01R">GitHub</a></div>
@@ -197,5 +225,6 @@
       <p>No scored fixture yet. Point <span class="mono">--json</span> at a proposal object with <span class="mono">projectSlug: "ore"</span>.</p>
       <p><a href="index.html">All projects</a></p>
     </div>
+  
 </body>
 </html>

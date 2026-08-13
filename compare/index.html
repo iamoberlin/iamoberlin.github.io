@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Proposal Risk</title>
+  <title>Compare — Proposal Risk</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter+Tight:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
@@ -208,38 +208,20 @@
 </head>
 <body>
   <header class="site-header"><nav class="site-nav">
-    <a class="brand" href="index.html">Proposal <span>Risk</span></a>
+    <a class="brand" href="../index.html">Proposal <span>Risk</span></a>
     <div class="links">
-      <a href="compare/index.html">Compare</a>
-      <a href="projects/index.html">Catalog</a>
-      <a href="research/index.html">Research</a>
+      <a href="../compare/index.html" aria-current="page">Compare</a>
+      <a href="../projects/index.html">Catalog</a>
+      <a href="../research/index.html">Research</a>
     </div>
     <div class="nav-end"><a class="nav-cta" href="https://github.com/iamoberlin/01R">GitHub</a></div>
   </nav></header>
-  
-  <div class="hero-block">
-    <div class="kicker">Decision-market risk for MetaDAO and tracked DAOs</div>
-    <h1>Proposal Risk</h1>
-    <p class="lede">Score any futarchy proposal with 01Resolved’s math and the Umbra attack-pattern signals. Compare protocols below — Umbra is the published HIGH-RISK case.</p>
-    <div class="banner">
-      <strong class="high">Umbra · HIGH-RISK</strong>
-      — 5/5 signals fired.
-      Published asymmetry: $4,623 to swing at $1.5M.
+  <div class="hero-block" style="padding-bottom:8px">
+      <div class="kicker">Multi-protocol</div>
+      <h1>Compare</h1>
+      <p class="lede">Select one or more tracked protocols. Charts use the same scoreProposal payload as the CLI — Umbra stays the published HIGH-RISK series.</p>
     </div>
-    <div class="stats">
-      <div class="stat"><div class="lbl">Pass TWAP</div><div class="val">$0.2335</div></div>
-      <div class="stat"><div class="lbl">Fail TWAP</div><div class="val">$0.2798</div></div>
-      <div class="stat"><div class="lbl">Fail-by margin</div><div class="val fire">19.55%</div></div>
-      <div class="stat"><div class="lbl">Attacker cost</div><div class="val high">$4,623</div></div>
-      <div class="stat"><div class="lbl">Requested</div><div class="val">$1.5M</div></div>
-      <div class="stat"><div class="lbl">Tracked projects</div><div class="val">34</div></div>
-    </div>
-    <div class="cta-row">
-      <a class="btn primary" href="#compare">Compare protocols</a>
-      <a class="btn ghost" href="umbra/index.html">Read the Umbra case</a>
-    </div>
-  </div>
-  <section class="compare" data-compare id="compare">
+    <section class="compare" data-compare id="compare">
     <div class="compare-toolbar">
       <div class="picker" data-picker>
     <button type="button" class="picker-toggle" data-picker-toggle aria-expanded="false" aria-haspopup="listbox">
@@ -357,97 +339,7 @@
     <h2 style="margin-top:36px">Selected replays</h2>
     <div class="cards" data-selected-cards></div>
   </section>
-  <div class="section">
-    <h2>All scored fixtures</h2>
-    <div class="cards"><a class="card" href="replay/umbra/index.html">
-        <div class="idx">umbra</div>
-        <h3>Umbra</h3>
-        <p class="meta">Published forensics · non-team</p>
-        <div class="pill-row"><span class="tag high">HIGH-RISK</span><span class="tag">5/5 signals</span></div>
-      </a>
-<a class="card" href="replay/metadao/index.html">
-        <div class="idx">metadao</div>
-        <h3>MetaDAO</h3>
-        <p class="meta">Contrast fixture · team</p>
-        <div class="pill-row"><span class="tag ok">LOW</span><span class="tag">0/5 signals</span></div>
-      </a>
-<a class="card" href="replay/jito/index.html">
-        <div class="idx">jito-dao</div>
-        <h3>Jito</h3>
-        <p class="meta">Contrast fixture · non-team</p>
-        <div class="pill-row"><span class="tag ok">LOW</span><span class="tag">0/5 signals</span></div>
-      </a>
-<a class="card" href="replay/loyal/index.html">
-        <div class="idx">loyal</div>
-        <h3>Loyal</h3>
-        <p class="meta">Contrast fixture · team</p>
-        <div class="pill-row"><span class="tag ok">LOW</span><span class="tag">0/5 signals</span></div>
-      </a></div>
-  </div>
-  <div class="section">
-    <h2>Component signals</h2>
-    <div class="signals"><div class="signal"><div class="id">fresh-wallet</div><p>Fresh wallet with no prior history</p></div>
-<div class="signal"><div class="id">bridge-funding</div><p>Cross-chain / bridge funding</p></div>
-<div class="signal"><div class="id">exact-stake-trim</div><p>Accumulation trimmed to exact proposal-stake threshold</p></div>
-<div class="signal"><div class="id">stake-recover-reuse</div><p>Stake recovered and reused in the decision market</p></div>
-<div class="signal"><div class="id">clustered-cadence</div><p>Clustered fixed-size cadence trades</p></div></div>
-  </div>
-  <div class="section">
-    <h2>Decision-market math</h2>
-    <p style="color:var(--muted)">pass edge = ((passTWAP − failTWAP) / failTWAP) × 100 · -16.55% against +3.00% · published spread -16.56%.</p>
-    <p style="color:var(--muted)">Net Pass Volume Tilt uses economic alignment (pass-buy &amp; fail-sell vs pass-sell &amp; fail-buy): ~46% / ~54% · fail-aligned.</p>
-    <p style="color:var(--muted)">MetaDAO launch-template thresholds: team-sponsored −3%, non-team +3%. Any other project scores through <span class="mono">--json</span> — no live API key.</p>
-  </div>
-  <div class="section">
-    <h2>Research briefing</h2>
-    <p style="color:var(--muted)">Public notes on 01Resolved, MetaDAO, and the computational surface. Interview-only candidate-fit is not published here.</p>
-    <div class="cards"><a class="card" href="research/01-company-profile.html">
-        <div class="idx">01</div>
-        <h3>Company profile — 01Resolved</h3>
-      </a>
-<a class="card" href="research/02-market-metadao.html">
-        <div class="idx">02</div>
-        <h3>Market context — MetaDAO, futarchy, ownership coins</h3>
-      </a>
-<a class="card" href="research/03-tech-stack.html">
-        <div class="idx">03</div>
-        <h3>Technical read — what the stack looks like from outside</h3>
-      </a>
-<a class="card" href="research/04-lead-engineer-contributions.html">
-        <div class="idx">04</div>
-        <h3>What a lead engineer could contribute at 01Resolved</h3>
-      </a>
-<a class="card" href="research/05-risks-open-questions.html">
-        <div class="idx">05</div>
-        <h3>Risks &amp; open questions to probe</h3>
-      </a>
-<a class="card" href="research/06-sources.html">
-        <div class="idx">06</div>
-        <h3>Sources</h3>
-      </a>
-<a class="card" href="research/07-analytical-methods.html">
-        <div class="idx">07</div>
-        <h3>Pass 2 — 01Resolved&#39;s analytical machinery</h3>
-      </a>
-<a class="card" href="research/08-api-surface.html">
-        <div class="idx">08</div>
-        <h3>Pass 2 — Full API surface (api.01resolved.com/v1)</h3>
-      </a>
-<a class="card" href="research/09-timeline-ecosystem.html">
-        <div class="idx">09</div>
-        <h3>Pass 2 — Timeline, business signals, ecosystem health</h3>
-      </a>
-<a class="card" href="research/10-competitive-landscape.html">
-        <div class="idx">10</div>
-        <h3>Pass 2 — MetaDAO deep dive, adjacent venues, competitive landscape</h3>
-      </a></div>
-  </div>
-  <div class="foot">
-    Live at <span class="mono">https://iamoberlin.github.io/</span>.
-    Source: <a href="https://github.com/iamoberlin/01R">https://github.com/iamoberlin/01R</a>.
-    Replay is offline and deterministic — no API key required.
-  </div>
-  <script>window.COMPARE_DATA = {"defaultIds":["umbra","metadao","jito"],"replays":[{"id":"umbra","slug":"umbra","name":"Umbra","kind":"published","classification":"HIGH-RISK","passEdge":-16.54753395282344,"failByMargin":19.54753395282344,"twapThresholdPct":3,"passAlignedShare":0.45999999999999996,"failAlignedShare":0.54,"firedCount":5,"signalCount":5,"passed":false,"requestedUsd":1500000,"treasuryShare":0.62,"passTWAP":0.2335,"failTWAP":0.2798,"replayHref":"replay/umbra/index.html"},{"id":"metadao","slug":"metadao","name":"MetaDAO","kind":"contrast","classification":"LOW","passEdge":2.0000000000000018,"failByMargin":-5.000000000000002,"twapThresholdPct":-3,"passAlignedShare":0.8285714285714285,"failAlignedShare":0.17142857142857149,"firedCount":0,"signalCount":5,"passed":true,"requestedUsd":80000,"treasuryShare":0.01,"passTWAP":1.02,"failTWAP":1,"replayHref":"replay/metadao/index.html"},{"id":"jito","slug":"jito-dao","name":"Jito","kind":"contrast","classification":"LOW","passEdge":5.000000000000004,"failByMargin":-2.0000000000000044,"twapThresholdPct":3,"passAlignedShare":0.8,"failAlignedShare":0.19999999999999996,"firedCount":0,"signalCount":5,"passed":true,"requestedUsd":120000,"treasuryShare":0.015,"passTWAP":1.05,"failTWAP":1,"replayHref":"replay/jito/index.html"},{"id":"loyal","slug":"loyal","name":"Loyal","kind":"contrast","classification":"LOW","passEdge":4.0000000000000036,"failByMargin":-2.0000000000000036,"twapThresholdPct":2,"passAlignedShare":0.8,"failAlignedShare":0.19999999999999996,"firedCount":0,"signalCount":5,"passed":true,"requestedUsd":40000,"treasuryShare":0.02,"passTWAP":1.04,"failTWAP":1,"replayHref":"replay/loyal/index.html"}],"protocols":[{"slug":"metadao","name":"MetaDAO","kind":"ownership-coin","status":"live","scoredId":"metadao"},{"slug":"avici","name":"Avici","kind":"ownership-coin","status":"live","scoredId":null},{"slug":"solomon","name":"Solomon","kind":"ownership-coin","status":"live","scoredId":null},{"slug":"p2p-protocol","name":"P2P Protocol","kind":"ownership-coin","status":"live","scoredId":null},{"slug":"umbra","name":"Umbra","kind":"ownership-coin","status":"live","scoredId":"umbra"},{"slug":"omnipair","name":"Omnipair","kind":"ownership-coin","status":"live","scoredId":null},{"slug":"loyal","name":"Loyal","kind":"ownership-coin","status":"live","scoredId":"loyal"},{"slug":"jurassic-finance","name":"Jurassic","kind":"ownership-coin","status":"live","scoredId":null},{"slug":"paystream","name":"Paystream","kind":"ownership-coin","status":"live","scoredId":null},{"slug":"zklsol","name":"ZKFG / Zinc","kind":"ownership-coin","status":"dissolved","scoredId":null},{"slug":"superclaw","name":"Superclaw","kind":"ownership-coin","status":"live","scoredId":null},{"slug":"futardio-cult","name":"Futardio Cult","kind":"ownership-coin","status":"live","scoredId":null},{"slug":"rip-cars","name":"Rip Cars","kind":"ownership-coin","status":"live","scoredId":null},{"slug":"credible","name":"Credible","kind":"ownership-coin","status":"live","scoredId":null},{"slug":"kimia","name":"Kimia","kind":"ownership-coin","status":"live","scoredId":null},{"slug":"ordr.trade","name":"Ordr","kind":"ownership-coin","status":"live","scoredId":null},{"slug":"laso-finance","name":"Laso","kind":"ownership-coin","status":"live","scoredId":null},{"slug":"areal-finance","name":"Areal","kind":"ownership-coin","status":"live","scoredId":null},{"slug":"basket","name":"Basket","kind":"ownership-coin","status":"live","scoredId":null},{"slug":"gesim","name":"Gesim","kind":"ownership-coin","status":"live","scoredId":null},{"slug":"kollan-house","name":"Kollan House","kind":"ownership-coin","status":"live","scoredId":null},{"slug":"kyros","name":"Kyros","kind":"ownership-coin","status":"live","scoredId":null},{"slug":"coal","name":"Coal","kind":"ownership-coin","status":"live","scoredId":null},{"slug":"jito-dao","name":"Jito","kind":"established-dao","status":"live","scoredId":"jito"},{"slug":"sanctum","name":"Sanctum","kind":"established-dao","status":"live","scoredId":null},{"slug":"drift","name":"Drift","kind":"established-dao","status":"live","scoredId":null},{"slug":"marinade","name":"Marinade","kind":"established-dao","status":"live","scoredId":null},{"slug":"save-dao","name":"Save","kind":"established-dao","status":"live","scoredId":null},{"slug":"island-dao","name":"Island","kind":"established-dao","status":"live","scoredId":null},{"slug":"mtncapital","name":"Mtn Capital","kind":"established-dao","status":"live","scoredId":null},{"slug":"ore","name":"Ore","kind":"established-dao","status":"live","scoredId":null},{"slug":"ranger","name":"Ranger Finance","kind":"established-dao","status":"liquidated","scoredId":null},{"slug":"flash-trade","name":"Flash Trade","kind":"established-dao","status":"winding-down","scoredId":null},{"slug":"futuredao","name":"FutureDAO","kind":"established-dao","status":"live","scoredId":null}]};</script>
-  <script type="module" src="compare/compare-client.js"></script>
+  <script>window.COMPARE_DATA = {"defaultIds":["umbra","metadao","jito"],"replays":[{"id":"umbra","slug":"umbra","name":"Umbra","kind":"published","classification":"HIGH-RISK","passEdge":-16.54753395282344,"failByMargin":19.54753395282344,"twapThresholdPct":3,"passAlignedShare":0.45999999999999996,"failAlignedShare":0.54,"firedCount":5,"signalCount":5,"passed":false,"requestedUsd":1500000,"treasuryShare":0.62,"passTWAP":0.2335,"failTWAP":0.2798,"replayHref":"../replay/umbra/index.html"},{"id":"metadao","slug":"metadao","name":"MetaDAO","kind":"contrast","classification":"LOW","passEdge":2.0000000000000018,"failByMargin":-5.000000000000002,"twapThresholdPct":-3,"passAlignedShare":0.8285714285714285,"failAlignedShare":0.17142857142857149,"firedCount":0,"signalCount":5,"passed":true,"requestedUsd":80000,"treasuryShare":0.01,"passTWAP":1.02,"failTWAP":1,"replayHref":"../replay/metadao/index.html"},{"id":"jito","slug":"jito-dao","name":"Jito","kind":"contrast","classification":"LOW","passEdge":5.000000000000004,"failByMargin":-2.0000000000000044,"twapThresholdPct":3,"passAlignedShare":0.8,"failAlignedShare":0.19999999999999996,"firedCount":0,"signalCount":5,"passed":true,"requestedUsd":120000,"treasuryShare":0.015,"passTWAP":1.05,"failTWAP":1,"replayHref":"../replay/jito/index.html"},{"id":"loyal","slug":"loyal","name":"Loyal","kind":"contrast","classification":"LOW","passEdge":4.0000000000000036,"failByMargin":-2.0000000000000036,"twapThresholdPct":2,"passAlignedShare":0.8,"failAlignedShare":0.19999999999999996,"firedCount":0,"signalCount":5,"passed":true,"requestedUsd":40000,"treasuryShare":0.02,"passTWAP":1.04,"failTWAP":1,"replayHref":"../replay/loyal/index.html"}],"protocols":[{"slug":"metadao","name":"MetaDAO","kind":"ownership-coin","status":"live","scoredId":"metadao"},{"slug":"avici","name":"Avici","kind":"ownership-coin","status":"live","scoredId":null},{"slug":"solomon","name":"Solomon","kind":"ownership-coin","status":"live","scoredId":null},{"slug":"p2p-protocol","name":"P2P Protocol","kind":"ownership-coin","status":"live","scoredId":null},{"slug":"umbra","name":"Umbra","kind":"ownership-coin","status":"live","scoredId":"umbra"},{"slug":"omnipair","name":"Omnipair","kind":"ownership-coin","status":"live","scoredId":null},{"slug":"loyal","name":"Loyal","kind":"ownership-coin","status":"live","scoredId":"loyal"},{"slug":"jurassic-finance","name":"Jurassic","kind":"ownership-coin","status":"live","scoredId":null},{"slug":"paystream","name":"Paystream","kind":"ownership-coin","status":"live","scoredId":null},{"slug":"zklsol","name":"ZKFG / Zinc","kind":"ownership-coin","status":"dissolved","scoredId":null},{"slug":"superclaw","name":"Superclaw","kind":"ownership-coin","status":"live","scoredId":null},{"slug":"futardio-cult","name":"Futardio Cult","kind":"ownership-coin","status":"live","scoredId":null},{"slug":"rip-cars","name":"Rip Cars","kind":"ownership-coin","status":"live","scoredId":null},{"slug":"credible","name":"Credible","kind":"ownership-coin","status":"live","scoredId":null},{"slug":"kimia","name":"Kimia","kind":"ownership-coin","status":"live","scoredId":null},{"slug":"ordr.trade","name":"Ordr","kind":"ownership-coin","status":"live","scoredId":null},{"slug":"laso-finance","name":"Laso","kind":"ownership-coin","status":"live","scoredId":null},{"slug":"areal-finance","name":"Areal","kind":"ownership-coin","status":"live","scoredId":null},{"slug":"basket","name":"Basket","kind":"ownership-coin","status":"live","scoredId":null},{"slug":"gesim","name":"Gesim","kind":"ownership-coin","status":"live","scoredId":null},{"slug":"kollan-house","name":"Kollan House","kind":"ownership-coin","status":"live","scoredId":null},{"slug":"kyros","name":"Kyros","kind":"ownership-coin","status":"live","scoredId":null},{"slug":"coal","name":"Coal","kind":"ownership-coin","status":"live","scoredId":null},{"slug":"jito-dao","name":"Jito","kind":"established-dao","status":"live","scoredId":"jito"},{"slug":"sanctum","name":"Sanctum","kind":"established-dao","status":"live","scoredId":null},{"slug":"drift","name":"Drift","kind":"established-dao","status":"live","scoredId":null},{"slug":"marinade","name":"Marinade","kind":"established-dao","status":"live","scoredId":null},{"slug":"save-dao","name":"Save","kind":"established-dao","status":"live","scoredId":null},{"slug":"island-dao","name":"Island","kind":"established-dao","status":"live","scoredId":null},{"slug":"mtncapital","name":"Mtn Capital","kind":"established-dao","status":"live","scoredId":null},{"slug":"ore","name":"Ore","kind":"established-dao","status":"live","scoredId":null},{"slug":"ranger","name":"Ranger Finance","kind":"established-dao","status":"liquidated","scoredId":null},{"slug":"flash-trade","name":"Flash Trade","kind":"established-dao","status":"winding-down","scoredId":null},{"slug":"futuredao","name":"FutureDAO","kind":"established-dao","status":"live","scoredId":null}]};</script>
+  <script type="module" src="compare-client.js"></script>
 </body>
 </html>
