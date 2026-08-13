@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>01R — Umbra Pattern Detector</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #070b12;
+      --panel: #0e1624;
+      --line: #1c2a40;
+      --text: #e8eef7;
+      --muted: #8b9bb4;
+      --blue: #4c8dff;
+      --brand: #004386;
+      --fire: #f5a524;
+      --high: #ff5d5d;
+      --ok: #3dd68c;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); }
+    body { font: 15px/1.5 "IBM Plex Sans", "Segoe UI", system-ui, sans-serif; }
+    a { color: var(--blue); }
+    
+    .site-nav {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      max-width: 960px; margin: 0 auto; padding: 16px 20px 0;
+    }
+    .site-nav .brand {
+      font-weight: 700; letter-spacing: 0.08em; font-size: 12px; text-transform: uppercase;
+      color: var(--text); text-decoration: none;
+    }
+    .site-nav .brand span { color: var(--blue); }
+    .site-nav .links { display: flex; flex-wrap: wrap; gap: 6px 14px; }
+    .site-nav a { color: var(--muted); text-decoration: none; font-size: 13px; }
+    .site-nav a:hover { color: var(--text); }
+    .site-nav a[aria-current="page"] { color: var(--blue); }
+    .prose { max-width: 960px; margin: 0 auto; padding: 12px 20px 64px; }
+    .prose h1 { font-size: 28px; letter-spacing: -0.03em; margin: 12px 0 8px; }
+    .prose h2 { font-size: 18px; margin: 28px 0 10px; }
+    .prose h3 { font-size: 15px; margin: 22px 0 8px; color: var(--text); }
+    .prose p, .prose li { color: var(--text); }
+    .prose em { color: var(--muted); }
+    .prose code, .prose pre {
+      font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 13px;
+    }
+    .prose code {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 4px;
+      padding: 1px 5px;
+    }
+    .prose pre {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+      padding: 14px 16px; overflow-x: auto;
+    }
+    .prose pre code { background: none; border: 0; padding: 0; }
+    .prose table { width: 100%; border-collapse: collapse; background: var(--panel); border-radius: 10px; overflow: hidden; margin: 12px 0 20px; }
+    .prose th, .prose td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    .prose th { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .prose ul, .prose ol { padding-left: 1.2em; }
+    .prose li { margin: 6px 0; }
+    .prose hr { border: 0; border-top: 1px solid var(--line); margin: 28px 0; }
+    .kicker { color: var(--blue); letter-spacing: 0.14em; font-size: 11px; text-transform: uppercase; }
+    .mono { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 13px; }
+    .prose .kicker { color: var(--blue); letter-spacing: 0.14em; font-size: 11px; text-transform: uppercase; }
+    @media (max-width: 700px) {
+      .site-nav { flex-direction: column; align-items: flex-start; }
+    }
+
+    
+    .kicker { color: var(--blue); letter-spacing: 0.14em; font-size: 11px; text-transform: uppercase; }
+    .mono { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; }
+    .hero-block { max-width: 960px; margin: 0 auto; padding: 28px 20px 8px; }
+    .hero-block h1 { font-size: 34px; letter-spacing: -0.04em; margin: 8px 0 10px; }
+    .hero-block .lede { color: var(--muted); font-size: 17px; max-width: 40em; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0 8px; }
+    .btn {
+      display: inline-block; padding: 10px 14px; border-radius: 8px;
+      text-decoration: none; font-weight: 600; font-size: 14px;
+    }
+    .btn.primary { background: #13315c; color: var(--text); border: 1px solid #2a4d80; }
+    .btn.ghost { background: var(--panel); color: var(--text); border: 1px solid var(--line); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 22px 0; }
+    .stat { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; }
+    .stat .lbl { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .stat .val { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 20px; margin-top: 4px; }
+    .stat .val.high { color: var(--high); }
+    .stat .val.fire { color: var(--fire); }
+    .banner {
+      background: #2a1114; border: 1px solid #5a1e24; border-radius: 10px;
+      padding: 16px 18px; margin: 8px 0 0;
+    }
+    .banner.ok { background: #0f2319; border-color: #1d4a33; }
+    .banner strong.high { color: var(--high); }
+    .banner strong.ok { color: var(--ok); }
+    .section { max-width: 960px; margin: 0 auto; padding: 12px 20px 8px; }
+    .section h2 { font-size: 16px; margin: 20px 0 10px; }
+    .signals { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; }
+    .signal { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; }
+    .signal .id { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 12px; color: var(--blue); }
+    .signal p { margin: 6px 0 0; color: var(--muted); font-size: 13px; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 10px; }
+    .card {
+      display: block; background: var(--panel); border: 1px solid var(--line);
+      border-radius: 10px; padding: 14px 16px; text-decoration: none; color: inherit;
+    }
+    .card:hover { border-color: #2d4568; }
+    .card .idx { color: var(--blue); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+    .card h3 { margin: 4px 0 0; font-size: 15px; }
+    .foot { max-width: 960px; margin: 0 auto; padding: 28px 20px 64px; color: var(--muted); font-size: 12px; }
+  
+  </style>
+</head>
+<body>
+  <nav class="site-nav">
+    <a class="brand" href="index.html">01<span>R</span></a>
+    <div class="links">
+      <a href="umbra/index.html">Umbra replay</a>
+      <a href="organic/index.html">Organic contrast</a>
+      <a href="research/index.html">Research</a>
+      <a href="https://github.com/iamoberlin/01R">GitHub</a>
+    </div>
+  </nav>
+  
+  <div class="hero-block">
+    <div class="kicker">01Resolved · briefing + detector</div>
+    <h1>Umbra Pattern Detector</h1>
+    <p class="lede">Offline proposal-risk replay of the attack pattern in 01Resolved’s Umbra forensics. Decision-market math is theirs. Classification is a count of fired signals — not a case-name stub.</p>
+    <div class="banner">
+      <strong class="high">Classification: HIGH-RISK</strong>
+      — 5/5 signals fired.
+      Published asymmetry: $4,623 to swing at $1.5M.
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="lbl">Pass TWAP</div><div class="val">$0.2335</div></div>
+      <div class="stat"><div class="lbl">Fail TWAP</div><div class="val">$0.2798</div></div>
+      <div class="stat"><div class="lbl">Fail-by margin</div><div class="val fire">19.55%</div></div>
+      <div class="stat"><div class="lbl">Attacker cost</div><div class="val high">$4,623</div></div>
+      <div class="stat"><div class="lbl">Requested</div><div class="val">$1.5M</div></div>
+      <div class="stat"><div class="lbl">Volume tilt</div><div class="val">fail-aligned</div></div>
+    </div>
+    <div class="cta-row">
+      <a class="btn primary" href="umbra/index.html">Open Umbra replay</a>
+      <a class="btn ghost" href="organic/index.html">Organic contrast (LOW)</a>
+    </div>
+  </div>
+  <div class="section">
+    <h2>Component signals</h2>
+    <div class="signals"><div class="signal"><div class="id">fresh-wallet</div><p>Fresh wallet with no prior history</p></div>
+<div class="signal"><div class="id">bridge-funding</div><p>Cross-chain / bridge funding</p></div>
+<div class="signal"><div class="id">exact-stake-trim</div><p>Accumulation trimmed to exact proposal-stake threshold</p></div>
+<div class="signal"><div class="id">stake-recover-reuse</div><p>Stake recovered and reused in the decision market</p></div>
+<div class="signal"><div class="id">clustered-cadence</div><p>Clustered fixed-size cadence trades</p></div></div>
+  </div>
+  <div class="section">
+    <h2>Decision-market math</h2>
+    <p style="color:var(--muted)">pass edge = ((passTWAP − failTWAP) / failTWAP) × 100 · -16.55% against +3.00% · published spread -16.56%.</p>
+    <p style="color:var(--muted)">Net Pass Volume Tilt uses economic alignment (pass-buy &amp; fail-sell vs pass-sell &amp; fail-buy): ~46% / ~54% · fail-aligned.</p>
+  </div>
+  <div class="section">
+    <h2>Research briefing</h2>
+    <p style="color:var(--muted)">Public notes on 01Resolved, MetaDAO, and the computational surface. Interview-only candidate-fit is not published here.</p>
+    <div class="cards"><a class="card" href="research/01-company-profile.html">
+        <div class="idx">01</div>
+        <h3>Company profile — 01Resolved</h3>
+      </a>
+<a class="card" href="research/02-market-metadao.html">
+        <div class="idx">02</div>
+        <h3>Market context — MetaDAO, futarchy, ownership coins</h3>
+      </a>
+<a class="card" href="research/03-tech-stack.html">
+        <div class="idx">03</div>
+        <h3>Technical read — what the stack looks like from outside</h3>
+      </a>
+<a class="card" href="research/04-lead-engineer-contributions.html">
+        <div class="idx">04</div>
+        <h3>What a lead engineer could contribute at 01Resolved</h3>
+      </a>
+<a class="card" href="research/05-risks-open-questions.html">
+        <div class="idx">05</div>
+        <h3>Risks &amp; open questions to probe</h3>
+      </a>
+<a class="card" href="research/06-sources.html">
+        <div class="idx">06</div>
+        <h3>Sources</h3>
+      </a>
+<a class="card" href="research/07-analytical-methods.html">
+        <div class="idx">07</div>
+        <h3>Pass 2 — 01Resolved&#39;s analytical machinery</h3>
+      </a>
+<a class="card" href="research/08-api-surface.html">
+        <div class="idx">08</div>
+        <h3>Pass 2 — Full API surface (api.01resolved.com/v1)</h3>
+      </a>
+<a class="card" href="research/09-timeline-ecosystem.html">
+        <div class="idx">09</div>
+        <h3>Pass 2 — Timeline, business signals, ecosystem health</h3>
+      </a>
+<a class="card" href="research/10-competitive-landscape.html">
+        <div class="idx">10</div>
+        <h3>Pass 2 — MetaDAO deep dive, adjacent venues, competitive landscape</h3>
+      </a></div>
+  </div>
+  <div class="foot">
+    Live at <span class="mono">https://iamoberlin.github.io/01R/</span>.
+    Source: <a href="https://github.com/iamoberlin/01R">https://github.com/iamoberlin/01R</a>.
+    Replay is offline and deterministic — no API key required.
+  </div>
+</body>
+</html>

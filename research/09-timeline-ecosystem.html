@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pass 2 — Timeline, business signals, ecosystem health — 01R</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #070b12;
+      --panel: #0e1624;
+      --line: #1c2a40;
+      --text: #e8eef7;
+      --muted: #8b9bb4;
+      --blue: #4c8dff;
+      --brand: #004386;
+      --fire: #f5a524;
+      --high: #ff5d5d;
+      --ok: #3dd68c;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); }
+    body { font: 15px/1.5 "IBM Plex Sans", "Segoe UI", system-ui, sans-serif; }
+    a { color: var(--blue); }
+    
+    .site-nav {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      max-width: 960px; margin: 0 auto; padding: 16px 20px 0;
+    }
+    .site-nav .brand {
+      font-weight: 700; letter-spacing: 0.08em; font-size: 12px; text-transform: uppercase;
+      color: var(--text); text-decoration: none;
+    }
+    .site-nav .brand span { color: var(--blue); }
+    .site-nav .links { display: flex; flex-wrap: wrap; gap: 6px 14px; }
+    .site-nav a { color: var(--muted); text-decoration: none; font-size: 13px; }
+    .site-nav a:hover { color: var(--text); }
+    .site-nav a[aria-current="page"] { color: var(--blue); }
+    .prose { max-width: 960px; margin: 0 auto; padding: 12px 20px 64px; }
+    .prose h1 { font-size: 28px; letter-spacing: -0.03em; margin: 12px 0 8px; }
+    .prose h2 { font-size: 18px; margin: 28px 0 10px; }
+    .prose h3 { font-size: 15px; margin: 22px 0 8px; color: var(--text); }
+    .prose p, .prose li { color: var(--text); }
+    .prose em { color: var(--muted); }
+    .prose code, .prose pre {
+      font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 13px;
+    }
+    .prose code {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 4px;
+      padding: 1px 5px;
+    }
+    .prose pre {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+      padding: 14px 16px; overflow-x: auto;
+    }
+    .prose pre code { background: none; border: 0; padding: 0; }
+    .prose table { width: 100%; border-collapse: collapse; background: var(--panel); border-radius: 10px; overflow: hidden; margin: 12px 0 20px; }
+    .prose th, .prose td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    .prose th { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .prose ul, .prose ol { padding-left: 1.2em; }
+    .prose li { margin: 6px 0; }
+    .prose hr { border: 0; border-top: 1px solid var(--line); margin: 28px 0; }
+    .kicker { color: var(--blue); letter-spacing: 0.14em; font-size: 11px; text-transform: uppercase; }
+    .mono { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 13px; }
+    .prose .kicker { color: var(--blue); letter-spacing: 0.14em; font-size: 11px; text-transform: uppercase; }
+    @media (max-width: 700px) {
+      .site-nav { flex-direction: column; align-items: flex-start; }
+    }
+
+    
+  </style>
+</head>
+<body>
+  <nav class="site-nav">
+    <a class="brand" href="../index.html">01<span>R</span></a>
+    <div class="links">
+      <a href="../umbra/index.html">Umbra replay</a>
+      <a href="../organic/index.html">Organic contrast</a>
+      <a href="../research/index.html" aria-current="page">Research</a>
+      <a href="https://github.com/iamoberlin/01R">GitHub</a>
+    </div>
+  </nav>
+  <article class="prose"><h1>Pass 2 — Timeline, business signals, ecosystem health</h1>
+<p><em>Distilled from their Feb–Aug 2026 monthly/weekly reports and TTF pieces.</em></p>
+<h2>01Resolved company timeline</h2>
+<table><thead><tr><th>When</th><th>What</th></tr></thead><tbody>
+<tr><td>Dec 27 2025</td><td>Platform beta launches (decision-market analytics, project pages)</td></tr>
+<tr><td>Feb 2026</td><td>&quot;Permissionless proposals / proposal constitution&quot; RFC (The Call)</td></tr>
+<tr><td>Mar 2026</td><td><strong>Signals</strong> launch (Telegram, first account-gated feature); &quot;How to read a decision market&quot; guide</td></tr>
+<tr><td>Apr 2026</td><td>&quot;Building in the Open&quot; essay; <strong>Treasury Intelligence</strong> teased; first NAV table (11 coins)</td></tr>
+<tr><td>May 2026</td><td><strong>OpenBooks</strong> pitched as first named commercial product (&quot;If you run an ownership coin, OpenBooks is how we can help&quot;)</td></tr>
+<tr><td>Jun 2026</td><td>Weekly reports begin; both Blockworks TTF analyses published</td></tr>
+<tr><td>Jul 2026</td><td><strong>James presents at MetaDAO Owners Meeting</strong> (&quot;Fundamentals Data for Ownership Coins&quot;); third staff byline appears: <strong>Ian SB, analyst</strong> (NAV modeling, DM mechanics); per-project financials pages cited across ~15 projects</td></tr>
+<tr><td>Aug 2026</td><td>Umbra attack forensics + mechanism-hardening proposals; July monthly (&quot;100% revenue through the treasury&quot; standard)</td></tr>
+</tbody></table>
+<p>Signals about the business:</p>
+<ul>
+<li>Team is at least 3 (Drew, James, Ian SB) and growing; self-described as &quot;founders, investors, and finance operators.&quot;</li>
+<li>No pricing, revenue, funding, or entity details disclosed anywhere. OpenBooks is pitched to ownership-coin teams; <strong>Loyal is the de facto showcase</strong> (the only project among 53 Blockworks TTF filings with a balance sheet — via a linked report).</li>
+<li>Their editorial &quot;Calls&quot; function as a product roadmap: proposal constitutions (Feb) → market-based curation (Mar) → financial legibility/OpenBooks (May) → fundamental-analysis culture (Jun) → revenue-routing standard (Jul). Two of their proposals were later echoed in production (P2P&#39;s guardrails, Star.Fun&#39;s curation markets) — they have real ecosystem influence.</li>
+<li>They disclose trading on Ride Markets themselves (a conflict-of-interest disclosure norm).</li>
+<li><strong>Blockworks TTF positioning: explicitly complementary</strong> — TTF is the disclosure standard; 01Resolved is the verification/legibility layer beneath it. Their finding: of 53 TTF filings, only 2 include an income statement and only Loyal has a balance sheet. Their recurring frame: &quot;transparency ≠ legibility.&quot;</li>
+</ul>
+<h2>Ecosystem health series (their own onchain data)</h2>
+<table><thead><tr><th>Month</th><th>DM volume</th><th>Wallets</th><th>Proposals</th><th>Treasury total</th><th>MetaDAO revenue</th></tr></thead><tbody>
+<tr><td>Jan 26</td><td>$2.31M</td><td>158</td><td>6</td><td>–</td><td>–</td></tr>
+<tr><td>Feb 26</td><td>$180K</td><td>22</td><td>2</td><td>–</td><td>–</td></tr>
+<tr><td>Mar 26</td><td>$876K</td><td>~134</td><td>8</td><td>–</td><td>–</td></tr>
+<tr><td>Apr 26</td><td>$2.84M</td><td>155</td><td>4</td><td>$31.3M</td><td>–</td></tr>
+<tr><td>May 26</td><td>$80K</td><td>48</td><td>5</td><td>$31.7M</td><td>–</td></tr>
+<tr><td>Jun 26</td><td>$1.42M*</td><td>200*</td><td>7*</td><td>$28.8M</td><td>~$127–130K</td></tr>
+<tr><td>Jul 26</td><td>$5.9K</td><td>13</td><td>1</td><td>$34.4M</td><td>~$245K (+93%)</td></tr>
+</tbody></table>
+<p>\* The July issue restates June as $1.39M / 165 wallets / 6 proposals — an internal inconsistency between their own issues. <strong>Data-quality signal relevant to the lead-engineer pitch: even their flagship numbers drift between reports.</strong></p>
+<p>Other series: ownership-coin market cap $110M (Jun 19) → $120M (Jul 11) → <strong>$159M (Aug 9)</strong>; MetaDAO NAV premium +196% (Apr) → +856% (Jul); persistent NAV discounts on P2P/Solomon, premiums on Avici/Loyal. DM volume is extremely lumpy — driven by a few contested markets (Solomon Gigabus alone was $2.67M in April), not steady flow.</p>
+<h2>Ecosystem events worth knowing (interview fluency)</h2>
+<ul>
+<li><strong>Futarchy going mainstream-ish</strong>: GnosisDAO passed a Futarchy Labs pilot (99%); MetaDAO funded Robin Hanson&#39;s futarchy research at GMU ($80K/6mo); MetaDAO×Groom Lake security engagement ($360K/12mo); Novora IR advisory partnership.</li>
+<li><strong>Launch venues multiplying</strong>: Futardio (permissionless; $17.9M committed across 52 launches in March but only 2 hit target), Star.fun (curation markets), Spark (builder-selection + IdeaCoin loop), Crafts (SAFE-in-SPV, sealed-bid via Arcium), Fair.Club, Street, Bedrock (equity-via-token), Kollan curated launches. MetaDAO 2.0 outlined: proposal-type thresholds, programmatic buys below NAV / sells above, elected oversight committee.</li>
+<li><strong>Legal rails forming</strong>: Umia/MetaLeX per-project Cayman SPCs where decision-market outcomes become legally binding board resolutions (Q3); Solomon&#39;s Gigabus formalized a DAO LLC with $4.5M vault.</li>
+<li><strong>Four deaths so far</strong>: mtnCapital, Ranger (liquidated by market), ZKFG (bought out/dissolved after the Zinc revenue dispute), Flash Trade (winding down unless acquired). Plus FairScale liquidated 3 weeks post-ICO on Combinator.</li>
+<li><strong>Structural worries they document</strong>: thin-market governance ($2M MetaDAO allocation passed on ~$3K volume; a hire passed on $387 from one trader); over-contributed permissionless raises opening 60%+ below NAV (Kimia −67%, Ordr −61%); P2P founders betting on their own raise via Polymarket; asymmetric attack economics (Umbra).</li>
+</ul></article>
+    <div class="prose" style="padding-top:0"><p><a href="index.html">All research</a></p></div>
+</body>
+</html>

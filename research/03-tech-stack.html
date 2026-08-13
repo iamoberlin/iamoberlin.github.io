@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Technical read — what the stack looks like from outside — 01R</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #070b12;
+      --panel: #0e1624;
+      --line: #1c2a40;
+      --text: #e8eef7;
+      --muted: #8b9bb4;
+      --blue: #4c8dff;
+      --brand: #004386;
+      --fire: #f5a524;
+      --high: #ff5d5d;
+      --ok: #3dd68c;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); }
+    body { font: 15px/1.5 "IBM Plex Sans", "Segoe UI", system-ui, sans-serif; }
+    a { color: var(--blue); }
+    
+    .site-nav {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      max-width: 960px; margin: 0 auto; padding: 16px 20px 0;
+    }
+    .site-nav .brand {
+      font-weight: 700; letter-spacing: 0.08em; font-size: 12px; text-transform: uppercase;
+      color: var(--text); text-decoration: none;
+    }
+    .site-nav .brand span { color: var(--blue); }
+    .site-nav .links { display: flex; flex-wrap: wrap; gap: 6px 14px; }
+    .site-nav a { color: var(--muted); text-decoration: none; font-size: 13px; }
+    .site-nav a:hover { color: var(--text); }
+    .site-nav a[aria-current="page"] { color: var(--blue); }
+    .prose { max-width: 960px; margin: 0 auto; padding: 12px 20px 64px; }
+    .prose h1 { font-size: 28px; letter-spacing: -0.03em; margin: 12px 0 8px; }
+    .prose h2 { font-size: 18px; margin: 28px 0 10px; }
+    .prose h3 { font-size: 15px; margin: 22px 0 8px; color: var(--text); }
+    .prose p, .prose li { color: var(--text); }
+    .prose em { color: var(--muted); }
+    .prose code, .prose pre {
+      font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 13px;
+    }
+    .prose code {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 4px;
+      padding: 1px 5px;
+    }
+    .prose pre {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+      padding: 14px 16px; overflow-x: auto;
+    }
+    .prose pre code { background: none; border: 0; padding: 0; }
+    .prose table { width: 100%; border-collapse: collapse; background: var(--panel); border-radius: 10px; overflow: hidden; margin: 12px 0 20px; }
+    .prose th, .prose td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    .prose th { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .prose ul, .prose ol { padding-left: 1.2em; }
+    .prose li { margin: 6px 0; }
+    .prose hr { border: 0; border-top: 1px solid var(--line); margin: 28px 0; }
+    .kicker { color: var(--blue); letter-spacing: 0.14em; font-size: 11px; text-transform: uppercase; }
+    .mono { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 13px; }
+    .prose .kicker { color: var(--blue); letter-spacing: 0.14em; font-size: 11px; text-transform: uppercase; }
+    @media (max-width: 700px) {
+      .site-nav { flex-direction: column; align-items: flex-start; }
+    }
+
+    
+  </style>
+</head>
+<body>
+  <nav class="site-nav">
+    <a class="brand" href="../index.html">01<span>R</span></a>
+    <div class="links">
+      <a href="../umbra/index.html">Umbra replay</a>
+      <a href="../organic/index.html">Organic contrast</a>
+      <a href="../research/index.html" aria-current="page">Research</a>
+      <a href="https://github.com/iamoberlin/01R">GitHub</a>
+    </div>
+  </nav>
+  <article class="prose"><h1>Technical read — what the stack looks like from outside</h1>
+<p><em>Compiled 2026-08-12 from public repos, docs, and site inspection.</em></p>
+<h2>Frontend / app</h2>
+<ul>
+<li><strong>Next.js App Router</strong> (their public repo pins Next 16.2.5, React 19.2.4, TypeScript, Tailwind 4, Recharts) — main app at www.01resolved.com is fully client-rendered (~50 chars of crawlable text per page; copy ships in RSC flight chunks).</li>
+<li>i18n with locale routing and ICU plural messages.</li>
+<li>OAuth login (<code>/oauth/login</code>); account-level features (Signals config, upcoming portfolio).</li>
+<li>OG-image snapshot service: <code>/api/share/snapshot?type=dao-project&amp;slug=…&amp;theme=dark</code>.</li>
+<li>Sitemap enumerates per-project pages + per-proposal detail pages.</li>
+<li>Fonts: Open Sauce One; selection color #004386 (brand blue).</li>
+</ul>
+<h2>Backend / API</h2>
+<ul>
+<li>REST at <strong>api.01resolved.com/v1</strong>, <code>x-api-key</code> auth, pagination, per-key rate limits (Partner: 600 req/min; &quot;paid tiers with configurable rate limits per endpoint available&quot;).</li>
+<li>Endpoint groups: Project (overview, financials, movements, proposals), Decision Markets, Ownership Coin Market (global dashboard, launches, graveyard, search), API key introspection.</li>
+<li>Notable endpoints: <code>/global-dashboard/projects-launch</code> (all projects: price, treasury, NAV, mNAV, premium/discount, runway in one call), <code>/proposal/{pk}/pass-edge</code> (live passing status), <code>/trading-activity/{daoSlug}/trading-activities</code> (every trade ever), <code>/dao/account-registry</code> (wallet labels, custody types, tracking modes, vesting notes).</li>
+<li>Keys granted manually over Telegram → no self-serve onboarding yet.</li>
+</ul>
+<h2>Data layer (the hard part)</h2>
+<ul>
+<li>Solana indexing of MetaDAO&#39;s FutarchyAMM + DAO/treasury programs; ICO participation and claims; wallet-level trade histories.</li>
+<li><strong>Entity resolution / account registry</strong>: wallets labeled by name, custody type (Program/multisig/…), entity type (DAO vs contributor), tracking mode, free-text notes.</li>
+<li><strong>Transaction-classification engine</strong> — app strings expose the vocabulary: accounts, counterparties, movements, transactions, events, patterns, batches, periods, <strong>rules</strong>. This is a bookkeeping rules engine (OpenBooks) in the making.</li>
+<li>Derived models: NAV = treasury stables + non-native LP side + other non-native holdings; NAV/AS (adjusted supply = total − protocol-controlled − unvested); mNAV = FDV / NAV; runway = treasury / (spend limit + other monthly expenses); TWAP/pass-edge computation; proposal metrics vs project medians; trader concentration and economic-direction tilts.</li>
+<li>Forensics capability demonstrated: cross-chain funding traces (deBridge from Base), 115K-wallet scoring datasets, 24h/1w/1m cohort retention analyses.</li>
+</ul>
+<h2>Content &amp; ops</h2>
+<ul>
+<li>Research: Ghost. Docs: Mintlify-style MDX repo (github.com/01Resolved/docs).</li>
+<li>Deploys: Vercel and Netlify configs both present in public repo.</li>
+<li><strong>Agentic development</strong>: CLAUDE.md, AGENTS.md, <code>.claude/</code> dir in their public repo — they already work with Claude Code.</li>
+</ul>
+<h2>GitHub deep dive (pass 3, Aug 12)</h2>
+<p>Public repos: <code>01Resolved/docs</code> (Mintlify MDX), <code>alightlabs/01Resolved-Ownership-Coin-Snapshots</code> (per-project research-brief microsite), <code>alightlabs/ratehopper-app</code> (personal). The platform and API are closed-source; everything below is inferred from the public repos, commit history, and HTTP fingerprints.</p>
+<ul>
+<li><strong>The backend was built with VAR META, a Vietnamese dev agency.</strong> The snapshot repo&#39;s API client points at <code>https://01resolved.var-meta.com/api/v1</code> (resolves to a Vietnamese IP), and a May 26 docs commit reads &quot;Update API path prefix from /api/v1/ to /v1/ for production&quot; — staging lived on the agency&#39;s domain before the production cutover. VAR META (var-meta.com): ~50+ engineers, Hanoi + Da Nang, blockchain/AI/AR-VR agency, collaborations with Ubisoft, Hedera, Aptos, Cardano/Emurgo. <strong>Implication for the role: the platform is at least partly agency-built; &quot;lead engineer&quot; likely means bringing engineering in-house and owning/transitioning that codebase.</strong></li>
+<li><strong>Backend fingerprint</strong>: Node.js/Express-style — 404s return Express&#39;s classic <code>&quot;Cannot GET /path&quot;</code>, Helmet-style CSP headers, <code>{meta: {code, message, error}, data}</code> JSON envelope, <code>x-api-key</code> auth, behind Cloudflare.</li>
+<li><strong>Frontend hosting</strong>: production www serves via CloudFront (AWS) behind Cloudflare — not Vercel — while the public microsite repo deploys to Vercel (GitHub integration) with a Netlify config as fallback and a GitHub Action that syncs secrets to Vercel.</li>
+<li><strong>Dune Analytics is a second data source</strong>: the snapshot microsite pulls cached Dune query results (2h refresh, &quot;no credits consumed&quot;) alongside their own Treasury Intelligence API — protocol metrics (e.g., Omnipair pools/revenue) come from Dune queries, not their indexer.</li>
+<li><strong>Frontend stack confirmed</strong>: Next.js App Router (16.x) + React 19 + strict TypeScript + Tailwind 4 + Recharts. James&#39;s other repo adds Radix UI/shadcn-style components, framer-motion, TanStack Query, and wagmi/viem/RainbowKit (EVM tooling fluency).</li>
+<li><strong>James&#39;s background</strong>: commits under <code>james@alightsystems.com</code> (GitHub <code>alightlabs</code>) and <code>james@dtravel.com</code> (GitHub <code>JJJSOUL</code>, whose one repo documents <strong>Nite Protocol</strong> — Dtravel&#39;s onchain booking protocol). James appears to be/have been at Dtravel (web3 travel), which explains the &quot;founders, investors, and finance operators&quot; framing.</li>
+<li><strong>Engineering culture</strong>: heavy agentic development (CLAUDE.md, AGENTS.md, <code>.claude/launch.json</code>); 12+ commits in a day on the microsite with AI-styled commit messages; CI limited to secret syncing; no tests visible in any public repo.</li>
+<li><strong>MetaDAO upstream</strong>: github.com/metaDAOproject — 55 public repos, Rust/TypeScript monorepo <code>programs</code> (Anchor on Solana). Their indexer necessarily consumes these.</li>
+</ul>
+<h2>Observed rough edges</h2>
+<ul>
+<li><code>/treasury-intelligence</code> returns HTTP 500 (Aug 12, 2026).</li>
+<li>API key issuance is manual (Telegram DM).</li>
+<li>Marketing/app pages are client-rendered → weak SEO for an intelligence brand; the Ghost blog carries all organic search weight.</li>
+<li>Public correctness disputes over Ownership Scores (X reports of wrong individual scores).</li>
+<li>Bot-blocking (403) on default fetchers, even for the research blog.</li>
+</ul></article>
+    <div class="prose" style="padding-top:0"><p><a href="index.html">All research</a></p></div>
+</body>
+</html>

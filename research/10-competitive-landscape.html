@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pass 2 — MetaDAO deep dive, adjacent venues, competitive landscape — 01R</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #070b12;
+      --panel: #0e1624;
+      --line: #1c2a40;
+      --text: #e8eef7;
+      --muted: #8b9bb4;
+      --blue: #4c8dff;
+      --brand: #004386;
+      --fire: #f5a524;
+      --high: #ff5d5d;
+      --ok: #3dd68c;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); }
+    body { font: 15px/1.5 "IBM Plex Sans", "Segoe UI", system-ui, sans-serif; }
+    a { color: var(--blue); }
+    
+    .site-nav {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      max-width: 960px; margin: 0 auto; padding: 16px 20px 0;
+    }
+    .site-nav .brand {
+      font-weight: 700; letter-spacing: 0.08em; font-size: 12px; text-transform: uppercase;
+      color: var(--text); text-decoration: none;
+    }
+    .site-nav .brand span { color: var(--blue); }
+    .site-nav .links { display: flex; flex-wrap: wrap; gap: 6px 14px; }
+    .site-nav a { color: var(--muted); text-decoration: none; font-size: 13px; }
+    .site-nav a:hover { color: var(--text); }
+    .site-nav a[aria-current="page"] { color: var(--blue); }
+    .prose { max-width: 960px; margin: 0 auto; padding: 12px 20px 64px; }
+    .prose h1 { font-size: 28px; letter-spacing: -0.03em; margin: 12px 0 8px; }
+    .prose h2 { font-size: 18px; margin: 28px 0 10px; }
+    .prose h3 { font-size: 15px; margin: 22px 0 8px; color: var(--text); }
+    .prose p, .prose li { color: var(--text); }
+    .prose em { color: var(--muted); }
+    .prose code, .prose pre {
+      font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 13px;
+    }
+    .prose code {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 4px;
+      padding: 1px 5px;
+    }
+    .prose pre {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+      padding: 14px 16px; overflow-x: auto;
+    }
+    .prose pre code { background: none; border: 0; padding: 0; }
+    .prose table { width: 100%; border-collapse: collapse; background: var(--panel); border-radius: 10px; overflow: hidden; margin: 12px 0 20px; }
+    .prose th, .prose td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    .prose th { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .prose ul, .prose ol { padding-left: 1.2em; }
+    .prose li { margin: 6px 0; }
+    .prose hr { border: 0; border-top: 1px solid var(--line); margin: 28px 0; }
+    .kicker { color: var(--blue); letter-spacing: 0.14em; font-size: 11px; text-transform: uppercase; }
+    .mono { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 13px; }
+    .prose .kicker { color: var(--blue); letter-spacing: 0.14em; font-size: 11px; text-transform: uppercase; }
+    @media (max-width: 700px) {
+      .site-nav { flex-direction: column; align-items: flex-start; }
+    }
+
+    
+  </style>
+</head>
+<body>
+  <nav class="site-nav">
+    <a class="brand" href="../index.html">01<span>R</span></a>
+    <div class="links">
+      <a href="../umbra/index.html">Umbra replay</a>
+      <a href="../organic/index.html">Organic contrast</a>
+      <a href="../research/index.html" aria-current="page">Research</a>
+      <a href="https://github.com/iamoberlin/01R">GitHub</a>
+    </div>
+  </nav>
+  <article class="prose"><h1>Pass 2 — MetaDAO deep dive, adjacent venues, competitive landscape</h1>
+<h2>MetaDAO: the platform 01Resolved is levered to</h2>
+<ul>
+<li><strong>Origins/funding</strong>: DAO launched Nov 2023 with a $10K treasury; launchpad live Apr 9, 2025. Funding ≈ <strong>$12.1M</strong>: $2.2M led by Paradigm (Aug 2024) + $9.9M OTC (Oct 2025: Paradigm $5.9M, Variant $2.5M, 6MV $1.5M). <strong>Pantera is not an investor</strong> — its Feb 2024 proposal to buy $50K of META was rejected by the decision market (a famous futarchy moment).</li>
+<li><strong>Founders</strong>: pseudonymous <strong>Proph3t</strong> (@metaproph3t) and <strong>Kollan House</strong> (&quot;Nallok&quot; — note: &quot;Kollan House&quot; appears as a tracked project slug too). Team ~1–10 people, SF. Hiring via third-party boards: Founding Engineer $150–250K, Web3 Staff Engineer $250–400K listings seen; their Ashby board currently shows 0 published postings.</li>
+<li><strong>Revenue</strong>: FutarchyAMM 0.5% fee (fully to MetaDAO since Dec 2025) + Meteora LP; ~$2.4M cumulative by early 2026; job listings claim ~$9M/yr run rate; 01Resolved measured ~$245K in July (+93% MoM). Blockworks Analytics runs live MetaDAO revenue dashboards.</li>
+<li><strong>Mechanics</strong> (docs.metadao.fi): proposals need 200K–1.5M tokens staked (1–15% of the 10M ICO float); <strong>one live proposal at a time per DAO</strong>; no slashing. Markets trade 3 days seeded with half the project&#39;s spot liquidity; &quot;lagging price TWAP&quot; with 24h pre-recording delay; thresholds −3% team-sponsored / +3% non-team. Launch template: 10M tokens to sale, 2.9M liquidity, ≤12.9M performance package unlocking in 5 tranches at 2×/4×/8×/16×/32× ICO price (3-month TWAP, ≥18 months); monthly team budget ≤ 1/6 of min raise; IP to a Cayman SPC. New: Colosseum <strong>STAMP</strong> (pre-ICO instrument; investor reserve ≤20%, team 10–40%, 24-month linear unlock).</li>
+<li><strong>&quot;MetaDAO 2.0&quot;</strong> is 01Resolved&#39;s/community shorthand from the July monthly (proposal- type thresholds, programmatic NAV-based buys/sells, elected oversight committee) — not a formally named MetaDAO initiative. META migration: METAC → META 1:1000; listed on Coinbase, KuCon, Upbit (as META2), Bithumb.</li>
+<li><strong>Traction</strong>: first 8 ICOs $25.6M; 2025 projects raised $96M combined; Umbra ICO drew $154M in commitments; Rip Cars 128×; ownership-coin market cap $159M (Aug 9).</li>
+</ul>
+<h2>Adjacent launch venues (their expansion surface)</h2>
+<ul>
+<li><strong>Futardio</strong> (futard.io) — MetaDAO&#39;s permissionless arm. Live counters: $43.7M committed, 2,210 funders. High failure rate (Mar: 52 launches, 2 hit target).</li>
+<li><strong>Star</strong> (star.fun) — &quot;internet rounds&quot;: tokenized startup equity on bonding curves; raised $450K for itself in 48h; ~$1.57M raised on platform.</li>
+<li><strong>Spark</strong> — IdeaCoins: backers fund ideas, builders compete, decision markets govern; integrated Omnipair for instant liquidity; Jurassic $RAWR ($12.5M committed).</li>
+<li>Others: Crafts (SAFE-in-SPV, Arcium sealed bids), Fair.Club, Street, Bedrock (equity-via-token), Combinator (FairScale liquidation happened there). Hurupay = a fintech that ICO&#39;d on MetaDAO (not a venue).</li>
+</ul>
+<h2>Competitive landscape</h2>
+<table><thead><tr><th>Player</th><th>Coverage</th><th>Overlap with 01Resolved</th></tr></thead><tbody>
+<tr><td><strong>Blockworks</strong></td><td>TTF disclosure standard (53+ filings, Transparency Alliance with Coinbase/Kraken/Grayscale; SEC/CFTC meetings) + Analytics dashboards incl. MetaDAO revenue</td><td>The incumbent. 01Resolved positions as <em>complementary</em>: TTF = disclosure, 01Resolved = verification/financial legibility beneath it. Also the most plausible acquirer/partner.</td></tr>
+<tr><td><strong>Token Terminal</strong></td><td>Standardized protocol financials from fee data</td><td>Closest on financial-statement methodology; no wallet-level treasury accounting, no futarchy coverage</td></tr>
+<tr><td><strong>Messari</strong></td><td>Broad asset research; has a MetaDAO page</td><td>No decision-market analytics</td></tr>
+<tr><td><strong>DeepDAO</strong></td><td>Treasury/governance aggregation for token-voting DAOs</td><td>No decision markets, no NAV modeling</td></tr>
+<tr><td><strong>Dune/Flipside</strong></td><td>Community SQL dashboards</td><td>01Resolved&#39;s explicit critique: unverified, stale, incomparable across projects</td></tr>
+<tr><td><strong>Artemis, DefiLlama, Reflexivity, Pine Analytics</strong></td><td>Chain fundamentals / TVL / one-off research</td><td>Pine Analytics substack is the nearest competing <em>research</em> coverage</td></tr>
+</tbody></table>
+<p><strong>Verdict:</strong> nobody else combines DAO-wallet-to-financial-statements (NAV, account registry, revenues/expenses, runway) with decision-market microstructure (TWAP margins, conviction, trader concentration). The defensible position is the combination; the risks are Blockworks expanding downward and MetaDAO building analytics in-house.</p>
+<h2>Footprint corrections &amp; additions (pass 2)</h2>
+<ul>
+<li>App i18n strings reveal account roles <strong>&quot;Project Operator&quot; and &quot;Basic User&quot;</strong> — B2B account tiers already scaffolded (project teams as customers).</li>
+<li>Credible Finance tweets &quot;Track [our token] on @01Resolved&quot; — teams already use it as their public tracker.</li>
+<li>CoinSpectator (May 12) appears to carry 01Resolved&#39;s snapshot data (12 launches, ~$100M cap, ~$32M treasuries) — the sole mainstream pickup found. Third-party citation footprint is otherwise thin: The Daily Degen, project tweets.</li>
+<li><strong>No public lead-engineer job posting exists anywhere</strong> — no careers route in the app, nothing on job boards or X. Recruiting is happening privately; the role is relationship-sourced.</li>
+<li>Full names for James/Drew: not discoverable. 01Resolved funding: none announced.</li>
+</ul></article>
+    <div class="prose" style="padding-top:0"><p><a href="index.html">All research</a></p></div>
+</body>
+</html>

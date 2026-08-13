@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pass 2 — 01Resolved&#39;s analytical machinery — 01R</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #070b12;
+      --panel: #0e1624;
+      --line: #1c2a40;
+      --text: #e8eef7;
+      --muted: #8b9bb4;
+      --blue: #4c8dff;
+      --brand: #004386;
+      --fire: #f5a524;
+      --high: #ff5d5d;
+      --ok: #3dd68c;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); }
+    body { font: 15px/1.5 "IBM Plex Sans", "Segoe UI", system-ui, sans-serif; }
+    a { color: var(--blue); }
+    
+    .site-nav {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      max-width: 960px; margin: 0 auto; padding: 16px 20px 0;
+    }
+    .site-nav .brand {
+      font-weight: 700; letter-spacing: 0.08em; font-size: 12px; text-transform: uppercase;
+      color: var(--text); text-decoration: none;
+    }
+    .site-nav .brand span { color: var(--blue); }
+    .site-nav .links { display: flex; flex-wrap: wrap; gap: 6px 14px; }
+    .site-nav a { color: var(--muted); text-decoration: none; font-size: 13px; }
+    .site-nav a:hover { color: var(--text); }
+    .site-nav a[aria-current="page"] { color: var(--blue); }
+    .prose { max-width: 960px; margin: 0 auto; padding: 12px 20px 64px; }
+    .prose h1 { font-size: 28px; letter-spacing: -0.03em; margin: 12px 0 8px; }
+    .prose h2 { font-size: 18px; margin: 28px 0 10px; }
+    .prose h3 { font-size: 15px; margin: 22px 0 8px; color: var(--text); }
+    .prose p, .prose li { color: var(--text); }
+    .prose em { color: var(--muted); }
+    .prose code, .prose pre {
+      font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 13px;
+    }
+    .prose code {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 4px;
+      padding: 1px 5px;
+    }
+    .prose pre {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+      padding: 14px 16px; overflow-x: auto;
+    }
+    .prose pre code { background: none; border: 0; padding: 0; }
+    .prose table { width: 100%; border-collapse: collapse; background: var(--panel); border-radius: 10px; overflow: hidden; margin: 12px 0 20px; }
+    .prose th, .prose td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    .prose th { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .prose ul, .prose ol { padding-left: 1.2em; }
+    .prose li { margin: 6px 0; }
+    .prose hr { border: 0; border-top: 1px solid var(--line); margin: 28px 0; }
+    .kicker { color: var(--blue); letter-spacing: 0.14em; font-size: 11px; text-transform: uppercase; }
+    .mono { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 13px; }
+    .prose .kicker { color: var(--blue); letter-spacing: 0.14em; font-size: 11px; text-transform: uppercase; }
+    @media (max-width: 700px) {
+      .site-nav { flex-direction: column; align-items: flex-start; }
+    }
+
+    
+  </style>
+</head>
+<body>
+  <nav class="site-nav">
+    <a class="brand" href="../index.html">01<span>R</span></a>
+    <div class="links">
+      <a href="../umbra/index.html">Umbra replay</a>
+      <a href="../organic/index.html">Organic contrast</a>
+      <a href="../research/index.html" aria-current="page">Research</a>
+      <a href="https://github.com/iamoberlin/01R">GitHub</a>
+    </div>
+  </nav>
+  <article class="prose"><h1>Pass 2 — 01Resolved&#39;s analytical machinery</h1>
+<p><em>Distilled from their 12 mechanics/education posts (Dec 2025 – Jun 2026). This defines the computational surface a lead engineer would own.</em></p>
+<h2>Decision-market microstructure</h2>
+<ul>
+<li><strong>Phases</strong>: trading period (~72h) = Pre-TWAP (~24h, &quot;belief formation&quot;) + TWAP window (~48h, &quot;belief enforcement&quot;). Only TWAP-window prices count toward execution. TWAP math dilutes sniping: a trade in the last 10 min of a 48h window ≈ 0.35% of window weight.</li>
+<li><strong>Thresholds are configurable per proposal</strong> — observed range −3% to +4.1% (negative threshold = passes unless fail beats pass by that margin).</li>
+<li><strong>Economic alignment</strong>: pass-buy &amp; fail-sell = pass-aligned; pass-sell &amp; fail-buy = fail-aligned. Net Pass Volume Tilt = [(PassBuy + FailSell) − (PassSell + FailBuy)] / total volume; same on trade counts for Trader Tilt.</li>
+<li><strong>Late-activity taxonomy</strong>: organic close-out / activist pressure / outcome steering — classified by directional symmetry and capital in the final hours.</li>
+<li><strong>Signal-quality framework</strong>: price resilience (slippage, depth-to-1%-move, single-trade fragility) + participation quality + robustness (snap-back) + information environment. Their standing rebuttal to &quot;low volume = invalid&quot;: low volume can mean fast consensus (Solomon DP-00002 cleared with ~4 independent trades after stripping an arb bot).</li>
+<li><strong>Conviction over time</strong>: net pass-aligned dollars accumulated, split pre-TWAP vs TWAP.</li>
+</ul>
+<h2>Wallet/trader forensics</h2>
+<ul>
+<li>Cross-proposal and cross-DAO wallet tracking; per-wallet ending pass/fail exposure.</li>
+<li><strong>Bot detection</strong> via cadence, paired pass-sell/fail-sell execution, ~$100 clustered sizing, near-neutral net position — then &quot;strip out the bot&quot; independent-trade counts.</li>
+<li>Trade-frequency classification: 1–2 trades = conviction voter; 3–10 = high engagement; 21+ = arb/HFT bot. Repeat-trader (org-level retention) metrics.</li>
+<li>Long-term-holder identification: linking decision-market wallets back to ICO contribution history (Ranger liquidation&#39;s biggest pass-aligned wallets were ICO-era backers who lost trust).</li>
+<li>Named internal tool: <strong>&quot;01Resolved Decision Market Analysis Model.&quot;</strong></li>
+</ul>
+<h2>ICO analytics</h2>
+<ul>
+<li>Full participation datasets: committed vs accepted, oversubscription multiples, power-law cohorts (Ranger: top 50 wallets = 42.7% of $86.4M committed), contribution brackets, repeat-participant cohorting across ICOs (29% repeat wallets supplied 47% of Ranger value at &gt;2× average ticket).</li>
+<li>External-incentive vectors flagged (e.g., Polymarket cross-market hedging around ICOs).</li>
+</ul>
+<h2>Treasury / NAV analytics</h2>
+<ul>
+<li>Total NAV = non-native treasury assets − liabilities; NAV/AS = Total NAV ÷ Adjusted Supply (total − protocol-controlled − locked − unvested). Premium/Discount = (spot ÷ NAV/AS) − 1, with historical bands.</li>
+<li>Runway as a range (with/without protocol-owned liquidity — spending POL thins the AMM and triggers reflexive selling).</li>
+<li><strong>Burn vs dilution decomposition</strong> (spend lowers both NAV lines; supply growth lowers only NAV/AS) + a 4-row NAV/price signal matrix.</li>
+<li><strong>Projected NAV</strong> from program-enforced schedules: monthly allowances, performance packages (cliffs + price milestones), approved raises, revenue forecasts.</li>
+<li>Buyback evaluation: size as % of non-LP treasury, utilization, post-buyback runway range, performance vs SOL benchmark. Key finding: buybacks must be sized to what the treasury can absorb (Loyal spent 79.8% of treasury; Solomon&#39;s 17.1% aged far better).</li>
+</ul>
+<h2>Governance/mechanism R&amp;D (they do design work, not just analytics)</h2>
+<ul>
+<li><strong>Permissionless-proposals RFC</strong> (Mar 2026): split proposal creation (permissionless) from market activation (stake threshold + published per-DAO &quot;proposal constitution&quot;). Guardrail menu: Sensitive vs Standard proposal classes, onchain runway-floor checks, class-tuned thresholds/windows, stake calibration (~5–10% liquid supply standard, 15–20% sensitive). Roadmap included a proposal-creation wizard and possible fork of the MetaDAO decision-market program as reference implementation. They offered consulting to DAOs on guardrail selection and were prepared to submit a formal MetaDAO proposal.</li>
+<li>Case studies showing futarchy as negotiation forum: Solomon &quot;Gigabus&quot; ($2.7M volume, 2,276 trades) was failing until the team negotiated mid-TWAP with the lead opposing whale (adding Proph3t as multisig signer, returning ~$2M) and the market repriced.</li>
+</ul>
+<h2>MetaDAO mechanism facts (for reference)</h2>
+<ul>
+<li>Proposals need stake backing to go live; post-ICO 90-day restriction on buybacks/liquidation (nullifiable by proposal); program-enforced monthly team allowances; FutarchyAMM shares liquidity between pass/fail conditional pools; losing branch reverts; ICOs = minimum raise + capped acceptance with pro-rata oversubscription.</li>
+</ul></article>
+    <div class="prose" style="padding-top:0"><p><a href="index.html">All research</a></p></div>
+</body>
+</html>

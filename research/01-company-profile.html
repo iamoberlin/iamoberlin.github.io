@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Company profile — 01Resolved — 01R</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #070b12;
+      --panel: #0e1624;
+      --line: #1c2a40;
+      --text: #e8eef7;
+      --muted: #8b9bb4;
+      --blue: #4c8dff;
+      --brand: #004386;
+      --fire: #f5a524;
+      --high: #ff5d5d;
+      --ok: #3dd68c;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); }
+    body { font: 15px/1.5 "IBM Plex Sans", "Segoe UI", system-ui, sans-serif; }
+    a { color: var(--blue); }
+    
+    .site-nav {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      max-width: 960px; margin: 0 auto; padding: 16px 20px 0;
+    }
+    .site-nav .brand {
+      font-weight: 700; letter-spacing: 0.08em; font-size: 12px; text-transform: uppercase;
+      color: var(--text); text-decoration: none;
+    }
+    .site-nav .brand span { color: var(--blue); }
+    .site-nav .links { display: flex; flex-wrap: wrap; gap: 6px 14px; }
+    .site-nav a { color: var(--muted); text-decoration: none; font-size: 13px; }
+    .site-nav a:hover { color: var(--text); }
+    .site-nav a[aria-current="page"] { color: var(--blue); }
+    .prose { max-width: 960px; margin: 0 auto; padding: 12px 20px 64px; }
+    .prose h1 { font-size: 28px; letter-spacing: -0.03em; margin: 12px 0 8px; }
+    .prose h2 { font-size: 18px; margin: 28px 0 10px; }
+    .prose h3 { font-size: 15px; margin: 22px 0 8px; color: var(--text); }
+    .prose p, .prose li { color: var(--text); }
+    .prose em { color: var(--muted); }
+    .prose code, .prose pre {
+      font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 13px;
+    }
+    .prose code {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 4px;
+      padding: 1px 5px;
+    }
+    .prose pre {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+      padding: 14px 16px; overflow-x: auto;
+    }
+    .prose pre code { background: none; border: 0; padding: 0; }
+    .prose table { width: 100%; border-collapse: collapse; background: var(--panel); border-radius: 10px; overflow: hidden; margin: 12px 0 20px; }
+    .prose th, .prose td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    .prose th { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .prose ul, .prose ol { padding-left: 1.2em; }
+    .prose li { margin: 6px 0; }
+    .prose hr { border: 0; border-top: 1px solid var(--line); margin: 28px 0; }
+    .kicker { color: var(--blue); letter-spacing: 0.14em; font-size: 11px; text-transform: uppercase; }
+    .mono { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 13px; }
+    .prose .kicker { color: var(--blue); letter-spacing: 0.14em; font-size: 11px; text-transform: uppercase; }
+    @media (max-width: 700px) {
+      .site-nav { flex-direction: column; align-items: flex-start; }
+    }
+
+    
+  </style>
+</head>
+<body>
+  <nav class="site-nav">
+    <a class="brand" href="../index.html">01<span>R</span></a>
+    <div class="links">
+      <a href="../umbra/index.html">Umbra replay</a>
+      <a href="../organic/index.html">Organic contrast</a>
+      <a href="../research/index.html" aria-current="page">Research</a>
+      <a href="https://github.com/iamoberlin/01R">GitHub</a>
+    </div>
+  </nav>
+  <article class="prose"><h1>Company profile — 01Resolved</h1>
+<p><em>Compiled 2026-08-12 from public sources.</em></p>
+<h2>One-liner</h2>
+<p>01Resolved is a two-founder startup building the analytics/intelligence layer for <strong>ownership coins</strong> and <strong>decision markets</strong> — a Bloomberg/Messari-style platform plus a research publication for the MetaDAO (futarchy) ecosystem on Solana. Beta launched <strong>December 27, 2025</strong>.</p>
+<h2>Thesis</h2>
+<p>Laid out across &quot;Crypto&#39;s Ownership Crisis&quot; (Dec 2025) and &quot;Building in the Open&quot; (Apr 2026):</p>
+<ul>
+<li>Most crypto tokens never delivered enforceable ownership. The token-equity split era (offshore foundation + operating company) fractured value flow; holders got &quot;participation without ownership&quot; (Aave/CoW revenue dispute, UNI front-end fees, holders excluded from Axelar/Tensor/Padre acquisitions).</li>
+<li>MetaDAO&#39;s ownership-coin framework fixes the <em>structure</em>: high-float fair issuance, ICO proceeds locked in an onchain treasury governed by decision markets, IP assigned to a DAO-linked entity, founder pay behind performance milestones.</li>
+<li>But the model survives only if its radical transparency is <em>legible</em>. Raw onchain data doesn&#39;t say whether a transfer is revenue, an expense, or an internal move. A Dune dashboard is unverified and incomparable across projects.</li>
+<li>01Resolved builds that missing layer: &quot;the teams that chose transparency first should not have to do it alone.&quot;</li>
+</ul>
+<h2>Products</h2>
+<table><thead><tr><th>Product</th><th>Description</th><th>Status</th></tr></thead><tbody>
+<tr><td><strong>Platform</strong> (www.01resolved.com)</td><td>Ecosystem dashboard + per-project Overview / Financials / Proposals pages for 30+ DAOs (MetaDAO, Jito, Sanctum, Drift, Marinade, Umbra, Loyal, Solomon, Laso, Credible, Rip Cars, …). Decision-market analytics: TWAP spreads, pass edge, economic direction, trader conviction, comparisons to project medians. Global dashboard incl. &quot;graveyard&quot; (wound-down projects).</td><td>Live (beta)</td></tr>
+<tr><td><strong>Research</strong> (01resolved.com/research)</td><td>Ghost-powered publication, ~43 posts since Dec 2025: weekly briefings, Ownership Coin Monthly, education series, deep dives (Ownership Score dataset — 115K wallets; Umbra attack forensics).</td><td>Live, ~weekly</td></tr>
+<tr><td><strong>Signals</strong></td><td>Telegram alerts: ICO completions + decision-market lifecycle (Initiated → Live pre-TWAP → TWAP window → Resolved), configurable per account. Launched Mar 16, 2026.</td><td>Live</td></tr>
+<tr><td><strong>OpenBooks</strong></td><td>Onchain bookkeeping for teams/investors: account registry, movement classification (rules, patterns, batches, periods, counterparties), financial statements from wallet activity.</td><td>Early</td></tr>
+<tr><td><strong>API</strong> (api.01resolved.com/v1)</td><td>Treasury/NAV/runway, proposals + trade-level data, global dashboard, ICO history. Keys granted manually via Telegram; Partner tier 600 req/min; paid tiers &quot;available.&quot;</td><td>Beta, gated</td></tr>
+</tbody></table>
+<p>Roadmap items they&#39;ve announced: portfolio-level features (holdings view, wallet-level decision-market history, ICO participation tracking), redesigned ecosystem landing page, launches page, deeper proposal analysis.</p>
+<h2>Team &amp; entity</h2>
+<ul>
+<li><strong>James</strong> — co-founder, &quot;ownership coin research, decision market analysis, and treasury intelligence.&quot; Appears to be the technical half: GitHub <code>alightlabs</code> (display name &quot;James&quot;, blog alightsystems.com — currently a placeholder page) hosts <code>01Resolved-Ownership-Coin-Snapshots</code> (TypeScript).</li>
+<li><strong>Drew</strong> — co-founder, &quot;fundamental analysis lens on ownership coins, decision markets, and onchain capital formation.&quot; Primary author of the thesis essays.</li>
+<li><strong>Ian SB</strong> — analyst (NAV modeling, decision-market mechanics); byline appears from the July 2026 monthly. Team of at least three, growing; self-described as &quot;founders, investors, and finance operators.&quot;</li>
+<li>Footer strings in the app name <strong>Organization Technology LLC</strong> — likely the operating entity (unverified externally). App i18n strings also expose account roles <strong>&quot;Project Operator&quot; / &quot;Basic User&quot;</strong> — B2B tiers for DAO teams are scaffolded.</li>
+<li>Founders publish under first names only; full names not discoverable. No funding announcements found anywhere. James presented &quot;Fundamentals Data for Ownership Coins&quot; at MetaDAO&#39;s inaugural Owners Meeting (SF, Jul 10, 2026).</li>
+<li>No public job posting for the lead-engineer role exists (no careers page, nothing on boards or X) — recruiting is private/relationship-sourced.</li>
+</ul>
+<h2>Footprint &amp; validation</h2>
+<ul>
+<li>X: <code>@01Resolved</code> (per GitHub profile links). Telegram <code>@Official01Resolved</code>: <strong>103 subscribers</strong> (Aug 2026). GitHub orgs: <code>01Resolved</code> (public <code>docs</code> repo), <code>01ResolvedOfficial</code>.</li>
+<li>The Daily Degen (Mar 4, 2026) called their Ranger Finance liquidation coverage &quot;the best synopsis we could find.&quot;</li>
+<li>Proph3t (MetaDAO founder) tweeted their Ownership Score retention findings (Jul 27, 2026).</li>
+<li>Their research is the de facto record of the ecosystem: weeklies + monthlies track every raise, proposal, and treasury movement.</li>
+</ul></article>
+    <div class="prose" style="padding-top:0"><p><a href="index.html">All research</a></p></div>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>What a lead engineer could contribute at 01Resolved — 01R</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #070b12;
+      --panel: #0e1624;
+      --line: #1c2a40;
+      --text: #e8eef7;
+      --muted: #8b9bb4;
+      --blue: #4c8dff;
+      --brand: #004386;
+      --fire: #f5a524;
+      --high: #ff5d5d;
+      --ok: #3dd68c;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); }
+    body { font: 15px/1.5 "IBM Plex Sans", "Segoe UI", system-ui, sans-serif; }
+    a { color: var(--blue); }
+    
+    .site-nav {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      max-width: 960px; margin: 0 auto; padding: 16px 20px 0;
+    }
+    .site-nav .brand {
+      font-weight: 700; letter-spacing: 0.08em; font-size: 12px; text-transform: uppercase;
+      color: var(--text); text-decoration: none;
+    }
+    .site-nav .brand span { color: var(--blue); }
+    .site-nav .links { display: flex; flex-wrap: wrap; gap: 6px 14px; }
+    .site-nav a { color: var(--muted); text-decoration: none; font-size: 13px; }
+    .site-nav a:hover { color: var(--text); }
+    .site-nav a[aria-current="page"] { color: var(--blue); }
+    .prose { max-width: 960px; margin: 0 auto; padding: 12px 20px 64px; }
+    .prose h1 { font-size: 28px; letter-spacing: -0.03em; margin: 12px 0 8px; }
+    .prose h2 { font-size: 18px; margin: 28px 0 10px; }
+    .prose h3 { font-size: 15px; margin: 22px 0 8px; color: var(--text); }
+    .prose p, .prose li { color: var(--text); }
+    .prose em { color: var(--muted); }
+    .prose code, .prose pre {
+      font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 13px;
+    }
+    .prose code {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 4px;
+      padding: 1px 5px;
+    }
+    .prose pre {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+      padding: 14px 16px; overflow-x: auto;
+    }
+    .prose pre code { background: none; border: 0; padding: 0; }
+    .prose table { width: 100%; border-collapse: collapse; background: var(--panel); border-radius: 10px; overflow: hidden; margin: 12px 0 20px; }
+    .prose th, .prose td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    .prose th { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .prose ul, .prose ol { padding-left: 1.2em; }
+    .prose li { margin: 6px 0; }
+    .prose hr { border: 0; border-top: 1px solid var(--line); margin: 28px 0; }
+    .kicker { color: var(--blue); letter-spacing: 0.14em; font-size: 11px; text-transform: uppercase; }
+    .mono { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 13px; }
+    .prose .kicker { color: var(--blue); letter-spacing: 0.14em; font-size: 11px; text-transform: uppercase; }
+    @media (max-width: 700px) {
+      .site-nav { flex-direction: column; align-items: flex-start; }
+    }
+
+    
+  </style>
+</head>
+<body>
+  <nav class="site-nav">
+    <a class="brand" href="../index.html">01<span>R</span></a>
+    <div class="links">
+      <a href="../umbra/index.html">Umbra replay</a>
+      <a href="../organic/index.html">Organic contrast</a>
+      <a href="../research/index.html" aria-current="page">Research</a>
+      <a href="https://github.com/iamoberlin/01R">GitHub</a>
+    </div>
+  </nav>
+  <article class="prose"><h1>What a lead engineer could contribute at 01Resolved</h1>
+<p><em>The centerpiece analysis. This would almost certainly be the first senior engineering hire alongside one technical founder — owning architecture, not a slice of it.</em></p>
+<p>Ordered roughly by strategic weight:</p>
+<h2>1. Make data correctness the moat (trust)</h2>
+<p>Everything they sell is a derived number: NAV, runway, pass edge, classifications. After the Ownership Score snapshot, incorrect individual scores were surfaced publicly on X. In an intelligence business one wrong number costs more than ten missing features.</p>
+<p><strong>Build:</strong> reconciliation against onchain truth, idempotent backfills, reorg/program-upgrade resilience, anomaly detection on derived metrics, a published data-quality methodology. &quot;The numbers are right&quot; becomes the brand, the way it is for Bloomberg.</p>
+<h2>2. Real-time infrastructure (speed)</h2>
+<p>Proposals go from announcement to live trading within hours; the Umbra defense flipped the market inside a 15-minute window. Signals exist, but only as Telegram pushes.</p>
+<p><strong>Build:</strong> streaming indexing (Geyser/websocket subscriptions instead of polling), live pass-edge feeds, webhooks in the API. &quot;Is this proposal passing right now&quot; is a product traders will pay for.</p>
+<h2>3. Generalize ingestion beyond MetaDAO (scale)</h2>
+<p>They already track launches on Futardio, Star, and Spark; stated scope is &quot;MetaDAO and emerging launchpads.&quot; Today each protocol likely means bespoke pipeline work.</p>
+<p><strong>Build:</strong> an adapter architecture where a new launchpad, DAO framework, or eventually chain is configuration plus a thin adapter. This is the difference between covering one ecosystem and owning the category as futarchy spreads.</p>
+<h2>4. Productize the API into revenue</h2>
+<p>Beta, hand-keyed over Telegram, paid tiers merely &quot;available,&quot; yet the docs already pitch six integration use cases to builders.</p>
+<p><strong>Build:</strong> self-serve keys, usage metering, billing, SLAs, status page. The API is the natural first revenue line and it compounds — every dashboard built on it deepens the moat.</p>
+<h2>5. OpenBooks as the B2B wedge (revenue)</h2>
+<p>Their own essays argue transparency infrastructure is the ecosystem&#39;s missing piece, and the July monthly&#39;s &quot;Call&quot; — route 100% of project revenue through DAO treasuries under a published policy — manufactures demand for exactly this product. The classification engine (rules/patterns/batches/periods) is already scaffolded in the app.</p>
+<p><strong>Build:</strong> a proper ledger engine — double-entry modeling of onchain movements, period close, auditable financial statements teams can publish. Every ownership-coin team is a prospective customer; a reporting standard also strengthens MetaDAO itself.</p>
+<h2>6. Turn one-off research into repeatable products (leverage)</h2>
+<p>The Ownership Score study (115K wallets, quartile retention) and Umbra forensics were labor-intensive one-offs; they&#39;ve promised 1-week and 1-month re-runs — a treadmill by hand.</p>
+<p><strong>Build:</strong> internal analysis infrastructure — cohort trackers, wallet-forensics tooling, holder-quality scoring as a service. Research velocity doubles and the tools become sellable (e.g., holder-quality reports for teams planning raises).</p>
+<h2>7. Governance-attack early warning (new product)</h2>
+<p>The Umbra attack was narrated after the fact, but the attacker&#39;s pattern — fresh wallet, bridge funding, accumulation to exactly the proposal-stake threshold — is detectable in advance.</p>
+<p><strong>Build:</strong> funding-path tracing, accumulation alerts, proposal risk scores. Makes 01Resolved load-bearing infrastructure for every DAO treasury in the ecosystem, not just analytics.</p>
+<h2>8. Engineering leadership itself (multiplier)</h2>
+<p>Reliability gaps (production 500s), manual processes, client-rendered public site — normal two-person-startup debt, exactly what a lead engineer retires.</p>
+<p><strong>Do:</strong> set practices (testing, CI, observability, incident discipline), exploit the agentic-dev workflow they&#39;ve already adopted, own hiring for the next engineers, and free the founders for what only they can do: research, distribution, ecosystem relationships.</p></article>
+    <div class="prose" style="padding-top:0"><p><a href="index.html">All research</a></p></div>
+</body>
+</html>

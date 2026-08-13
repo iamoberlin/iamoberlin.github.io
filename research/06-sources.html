@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sources — 01R</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #070b12;
+      --panel: #0e1624;
+      --line: #1c2a40;
+      --text: #e8eef7;
+      --muted: #8b9bb4;
+      --blue: #4c8dff;
+      --brand: #004386;
+      --fire: #f5a524;
+      --high: #ff5d5d;
+      --ok: #3dd68c;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); }
+    body { font: 15px/1.5 "IBM Plex Sans", "Segoe UI", system-ui, sans-serif; }
+    a { color: var(--blue); }
+    
+    .site-nav {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      max-width: 960px; margin: 0 auto; padding: 16px 20px 0;
+    }
+    .site-nav .brand {
+      font-weight: 700; letter-spacing: 0.08em; font-size: 12px; text-transform: uppercase;
+      color: var(--text); text-decoration: none;
+    }
+    .site-nav .brand span { color: var(--blue); }
+    .site-nav .links { display: flex; flex-wrap: wrap; gap: 6px 14px; }
+    .site-nav a { color: var(--muted); text-decoration: none; font-size: 13px; }
+    .site-nav a:hover { color: var(--text); }
+    .site-nav a[aria-current="page"] { color: var(--blue); }
+    .prose { max-width: 960px; margin: 0 auto; padding: 12px 20px 64px; }
+    .prose h1 { font-size: 28px; letter-spacing: -0.03em; margin: 12px 0 8px; }
+    .prose h2 { font-size: 18px; margin: 28px 0 10px; }
+    .prose h3 { font-size: 15px; margin: 22px 0 8px; color: var(--text); }
+    .prose p, .prose li { color: var(--text); }
+    .prose em { color: var(--muted); }
+    .prose code, .prose pre {
+      font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 13px;
+    }
+    .prose code {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 4px;
+      padding: 1px 5px;
+    }
+    .prose pre {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+      padding: 14px 16px; overflow-x: auto;
+    }
+    .prose pre code { background: none; border: 0; padding: 0; }
+    .prose table { width: 100%; border-collapse: collapse; background: var(--panel); border-radius: 10px; overflow: hidden; margin: 12px 0 20px; }
+    .prose th, .prose td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    .prose th { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .prose ul, .prose ol { padding-left: 1.2em; }
+    .prose li { margin: 6px 0; }
+    .prose hr { border: 0; border-top: 1px solid var(--line); margin: 28px 0; }
+    .kicker { color: var(--blue); letter-spacing: 0.14em; font-size: 11px; text-transform: uppercase; }
+    .mono { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 13px; }
+    .prose .kicker { color: var(--blue); letter-spacing: 0.14em; font-size: 11px; text-transform: uppercase; }
+    @media (max-width: 700px) {
+      .site-nav { flex-direction: column; align-items: flex-start; }
+    }
+
+    
+  </style>
+</head>
+<body>
+  <nav class="site-nav">
+    <a class="brand" href="../index.html">01<span>R</span></a>
+    <div class="links">
+      <a href="../umbra/index.html">Umbra replay</a>
+      <a href="../organic/index.html">Organic contrast</a>
+      <a href="../research/index.html" aria-current="page">Research</a>
+      <a href="https://github.com/iamoberlin/01R">GitHub</a>
+    </div>
+  </nav>
+  <article class="prose"><h1>Sources</h1>
+<h2>01Resolved primary</h2>
+<ul>
+<li>Seed article: https://01resolved.com/research/ownership-score-what-the-first-experiment-reveals/</li>
+<li>Beta launch: https://01resolved.com/research/introducing-01resolved-beta-an-analytics-layer-for-ownership-coins-and-decision-markets/</li>
+<li>Thesis: https://01resolved.com/research/building-in-the-open/ · https://01resolved.com/research/crypto-needs-an-ownership-overhaul/</li>
+<li>Monthly (July 2026): https://01resolved.com/research/ownership-coin-monthly-research-report-july-2026/</li>
+<li>Umbra attack forensics: https://01resolved.com/research/the-umbra-treasury-attack-cost-its-attacker-4-623/</li>
+<li>Signals launch: https://01resolved.com/research/01resolved-launches-telegram-signals-for-ownership-coins-and-decision-markets/</li>
+<li>Research index (all ~43 posts): https://01resolved.com/research/ (sitemap: /research/sitemap-posts.xml)</li>
+<li>Platform: https://www.01resolved.com/ (about, decision-markets, ownership-coins, metadao/overview, global-dashboard, openbooks, treasury-intelligence)</li>
+<li>API docs: https://github.com/01Resolved/docs (base: https://api.01resolved.com)</li>
+<li>Snapshot repo: https://github.com/alightlabs/01Resolved-Ownership-Coin-Snapshots</li>
+<li>Telegram: https://t.me/Official01Resolved · X: @01Resolved</li>
+</ul>
+<h2>Ecosystem / third-party</h2>
+<ul>
+<li>Crypto Briefing — ownership coins / Owners Meeting: https://cryptobriefing.com/metadao-solana-token-ownership-coins/</li>
+<li>Crypto Briefing — Rip Cars ICO: https://cryptobriefing.com/rip-cars-21m-metadao-solana-ico/</li>
+<li>Shoal Research — MetaDAO capital formation: https://www.shoal.gg/p/metadao-the-new-capital-formation</li>
+<li>Solana Compass — MetaDAO keynote: https://solanacompass.com/learn/breakpoint-25/product-keynote-metadao</li>
+<li>Solana Compass — MetaDAO project page: https://solanacompass.com/projects/MetaDAO</li>
+<li>Messari project page: https://messari.io/project/metadao</li>
+<li>The Daily Degen citation (Mar 4, 2026): https://thedailydegen.substack.com/p/the-daily-degen-march-4th-2026</li>
+<li>CoinSpectator (May 12, 2026): https://coinspectator.com/mainstream/2026/05/12/why-you-should-be-paying-attention-to-ownership-coins/</li>
+<li>MetaDAO X: https://twitter.com/MetaDAOProject (bio: &quot;We&#39;re hiring!&quot;) · Proph3t: @metaproph3t</li>
+</ul>
+<h2>Published briefing artifact</h2>
+<ul>
+<li>https://claude.ai/code/artifact/14ef306c-7289-4916-a985-7b586f480dc3</li>
+</ul></article>
+    <div class="prose" style="padding-top:0"><p><a href="index.html">All research</a></p></div>
+</body>
+</html>

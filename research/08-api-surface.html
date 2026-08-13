@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pass 2 — Full API surface (api.01resolved.com/v1) — 01R</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #070b12;
+      --panel: #0e1624;
+      --line: #1c2a40;
+      --text: #e8eef7;
+      --muted: #8b9bb4;
+      --blue: #4c8dff;
+      --brand: #004386;
+      --fire: #f5a524;
+      --high: #ff5d5d;
+      --ok: #3dd68c;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); }
+    body { font: 15px/1.5 "IBM Plex Sans", "Segoe UI", system-ui, sans-serif; }
+    a { color: var(--blue); }
+    
+    .site-nav {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      max-width: 960px; margin: 0 auto; padding: 16px 20px 0;
+    }
+    .site-nav .brand {
+      font-weight: 700; letter-spacing: 0.08em; font-size: 12px; text-transform: uppercase;
+      color: var(--text); text-decoration: none;
+    }
+    .site-nav .brand span { color: var(--blue); }
+    .site-nav .links { display: flex; flex-wrap: wrap; gap: 6px 14px; }
+    .site-nav a { color: var(--muted); text-decoration: none; font-size: 13px; }
+    .site-nav a:hover { color: var(--text); }
+    .site-nav a[aria-current="page"] { color: var(--blue); }
+    .prose { max-width: 960px; margin: 0 auto; padding: 12px 20px 64px; }
+    .prose h1 { font-size: 28px; letter-spacing: -0.03em; margin: 12px 0 8px; }
+    .prose h2 { font-size: 18px; margin: 28px 0 10px; }
+    .prose h3 { font-size: 15px; margin: 22px 0 8px; color: var(--text); }
+    .prose p, .prose li { color: var(--text); }
+    .prose em { color: var(--muted); }
+    .prose code, .prose pre {
+      font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 13px;
+    }
+    .prose code {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 4px;
+      padding: 1px 5px;
+    }
+    .prose pre {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+      padding: 14px 16px; overflow-x: auto;
+    }
+    .prose pre code { background: none; border: 0; padding: 0; }
+    .prose table { width: 100%; border-collapse: collapse; background: var(--panel); border-radius: 10px; overflow: hidden; margin: 12px 0 20px; }
+    .prose th, .prose td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    .prose th { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .prose ul, .prose ol { padding-left: 1.2em; }
+    .prose li { margin: 6px 0; }
+    .prose hr { border: 0; border-top: 1px solid var(--line); margin: 28px 0; }
+    .kicker { color: var(--blue); letter-spacing: 0.14em; font-size: 11px; text-transform: uppercase; }
+    .mono { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 13px; }
+    .prose .kicker { color: var(--blue); letter-spacing: 0.14em; font-size: 11px; text-transform: uppercase; }
+    @media (max-width: 700px) {
+      .site-nav { flex-direction: column; align-items: flex-start; }
+    }
+
+    
+  </style>
+</head>
+<body>
+  <nav class="site-nav">
+    <a class="brand" href="../index.html">01<span>R</span></a>
+    <div class="links">
+      <a href="../umbra/index.html">Umbra replay</a>
+      <a href="../organic/index.html">Organic contrast</a>
+      <a href="../research/index.html" aria-current="page">Research</a>
+      <a href="https://github.com/iamoberlin/01R">GitHub</a>
+    </div>
+  </nav>
+  <article class="prose"><h1>Pass 2 — Full API surface (api.01resolved.com/v1)</h1>
+<p><em>Enumerated from their public docs repo (github.com/01Resolved/docs), Aug 2026. Beta; keys via Telegram; Partner tier 600 req/min; paid tiers &quot;available.&quot;</em></p>
+<h2>Project · Overview (17 endpoints)</h2>
+<p><code>/url/{project}</code> · <code>/project-overview</code> · <code>/dao/overview</code> · <code>/project-overview/legals</code> · <code>/legal-entity</code> · <code>/project-overview/token-distribution</code> · <code>/dao/token-supply/overview</code> · <code>/dao/token-supply</code> · <code>/dao/token-supply/chart</code> · <code>/project-overview/performance-package</code> · <code>/project-overview/tranche-ladder</code> · <code>/project-overview/unlock-schedule</code> · <code>/project-overview/ico-details</code> · <code>/project-overview/ico-contributor</code> (+ <code>/chart</code>, <code>/ico-list</code>, <code>/investors</code>)</p>
+<p>Notable: legal-entity and legal-docs endpoints (they index the DAO legal wrappers); performance-package/tranche-ladder/unlock-schedule = vesting analytics; ICO contributor splits including an &quot;investors&quot; cut.</p>
+<h2>Project · Financials (11 endpoints)</h2>
+<p><code>/dao/treasury/overview</code> (price, total balance, NAV/AS, spending limit, months of runway) · <code>/dao/treasury</code> (every wallet, every token) · <code>/dao/treasury/chart</code> · <code>/dao/asset-allocation-breakdown</code> (+ list variant) · <code>/dao/native-token-accounts</code> · <code>/dao/revenues</code> · <code>/dao/total-revenue</code> · <code>/dao/expenses</code> · <code>/dao/total-expense</code> · <code>/dao/project-timeline</code></p>
+<h2>Project · Movements (21 endpoints — the OpenBooks engine)</h2>
+<p><code>/dao/account-registry</code> (labels, custody type, entity type, tracking mode, vesting notes) · <code>/group</code> · <code>/account</code> (+ <code>/active</code>, <code>/grouped</code>, <code>/legacy</code>, <code>/{id}</code>, <code>/{id}/balance/onchain</code>, <code>/{id}/balance/offchain</code>) · <code>/counterparty</code> (+ <code>/{id}</code>) · <code>/movement</code> (+ <code>/grouped</code>, <code>/export/csv</code>, <code>/{id}</code>, <code>/{id}/surrounding</code>, <code>/filters/entity</code>, <code>/filters/token</code>) · <code>/category</code> · <code>/dao/movements</code></p>
+<p>Notable: <strong>onchain AND offchain balances</strong> per account — OpenBooks is designed to span custodial/offchain holdings, not just wallets. <code>/movement/{id}/surrounding</code> = transaction context view. Categories + counterparties = a real bookkeeping schema.</p>
+<h2>Project · Proposals (26 endpoints)</h2>
+<p><code>/proposal</code> (+ <code>/filter</code>, <code>/analytics</code>, <code>/{publicKey}</code>) · per-proposal: <code>/orders</code> (+ 3 CSV exports), <code>/price-chart</code>, <code>/market-overview</code>, <code>/proposal-for-chart</code>, <code>/threshold-chart</code>, <code>/flow-chart</code>, <code>/pass-edge</code> · analytics: <code>/trade-overview</code>, <code>/outcome-strength</code>, <code>/conviction-chart</code>, <code>/trade-frequency-chart</code>, <code>/traders</code>, <code>/proposal-metrics-chart</code> (comparables), <code>/proposal-comparables</code> · <code>/trading-activity/{daoSlug}</code> (+ <code>/trading-activities</code>) · <code>/trading-activity/special-wallet</code> (+ <code>/overview</code>) — all decision-market trades for any wallet across all projects, sortable by concentration metrics.</p>
+<h2>Decision Markets (3) &amp; Ownership Coin Market (8)</h2>
+<p>Global: <code>/global-dashboard/overview/decision-markets</code> · <code>/global-dashboard/decision-markets</code> · <code>/global-dashboard/projects/decision-markets</code> · market-cap &amp; treasury-value charts · <code>/projects</code> · <code>/projects-launch</code> (the &quot;one call = whole market&quot; endpoint) · <code>/recent-launches</code> · <code>/completed-launches/info</code> · <code>/graveyard-launches</code> · <code>/search</code></p>
+<h2>Tracked projects (28 slugs)</h2>
+<p>Ownership coins: metadao (META), avici, solomon (SOLO), p2p-protocol, umbra, omnipair (OMFG), loyal, jurassic-finance (RAWR), paystream (PAYS), zklsol (ZKFG), superclaw, futardio-cult, rip-cars, credible, kimia, ordr.trade, laso-finance, areal-finance, basket, gesim, kollan-house, kyros, coal. Established DAOs: jito-dao, sanctum, drift, marinade, save-dao, island-dao, mtncapital, ore, ranger (liquidated), flash-trade (winding down), futuredao, zklsol.</p>
+<h2>Engineering observations</h2>
+<ul>
+<li>~86 documented GET endpoints; no POST/webhook surface yet → alerting still lives only in the Telegram product; no streaming/websocket API.</li>
+<li>Slug inconsistency (<code>slug</code> vs <code>project</code> params across endpoint groups) documented with warnings — API grew organically; a lead engineer would want a v2 coherence pass.</li>
+<li>CSV exports on trades/movements — analyst-first design (their own research is clearly the first customer of this API).</li>
+<li>Wayback: first crawl of 01resolved.com on 2026-01-07 — the platform is ~8 months old.</li>
+</ul></article>
+    <div class="prose" style="padding-top:0"><p><a href="index.html">All research</a></p></div>
+</body>
+</html>

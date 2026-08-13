@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Market context — MetaDAO, futarchy, ownership coins — 01R</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #070b12;
+      --panel: #0e1624;
+      --line: #1c2a40;
+      --text: #e8eef7;
+      --muted: #8b9bb4;
+      --blue: #4c8dff;
+      --brand: #004386;
+      --fire: #f5a524;
+      --high: #ff5d5d;
+      --ok: #3dd68c;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); }
+    body { font: 15px/1.5 "IBM Plex Sans", "Segoe UI", system-ui, sans-serif; }
+    a { color: var(--blue); }
+    
+    .site-nav {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      max-width: 960px; margin: 0 auto; padding: 16px 20px 0;
+    }
+    .site-nav .brand {
+      font-weight: 700; letter-spacing: 0.08em; font-size: 12px; text-transform: uppercase;
+      color: var(--text); text-decoration: none;
+    }
+    .site-nav .brand span { color: var(--blue); }
+    .site-nav .links { display: flex; flex-wrap: wrap; gap: 6px 14px; }
+    .site-nav a { color: var(--muted); text-decoration: none; font-size: 13px; }
+    .site-nav a:hover { color: var(--text); }
+    .site-nav a[aria-current="page"] { color: var(--blue); }
+    .prose { max-width: 960px; margin: 0 auto; padding: 12px 20px 64px; }
+    .prose h1 { font-size: 28px; letter-spacing: -0.03em; margin: 12px 0 8px; }
+    .prose h2 { font-size: 18px; margin: 28px 0 10px; }
+    .prose h3 { font-size: 15px; margin: 22px 0 8px; color: var(--text); }
+    .prose p, .prose li { color: var(--text); }
+    .prose em { color: var(--muted); }
+    .prose code, .prose pre {
+      font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 13px;
+    }
+    .prose code {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 4px;
+      padding: 1px 5px;
+    }
+    .prose pre {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+      padding: 14px 16px; overflow-x: auto;
+    }
+    .prose pre code { background: none; border: 0; padding: 0; }
+    .prose table { width: 100%; border-collapse: collapse; background: var(--panel); border-radius: 10px; overflow: hidden; margin: 12px 0 20px; }
+    .prose th, .prose td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    .prose th { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .prose ul, .prose ol { padding-left: 1.2em; }
+    .prose li { margin: 6px 0; }
+    .prose hr { border: 0; border-top: 1px solid var(--line); margin: 28px 0; }
+    .kicker { color: var(--blue); letter-spacing: 0.14em; font-size: 11px; text-transform: uppercase; }
+    .mono { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 13px; }
+    .prose .kicker { color: var(--blue); letter-spacing: 0.14em; font-size: 11px; text-transform: uppercase; }
+    @media (max-width: 700px) {
+      .site-nav { flex-direction: column; align-items: flex-start; }
+    }
+
+    
+  </style>
+</head>
+<body>
+  <nav class="site-nav">
+    <a class="brand" href="../index.html">01<span>R</span></a>
+    <div class="links">
+      <a href="../umbra/index.html">Umbra replay</a>
+      <a href="../organic/index.html">Organic contrast</a>
+      <a href="../research/index.html" aria-current="page">Research</a>
+      <a href="https://github.com/iamoberlin/01R">GitHub</a>
+    </div>
+  </nav>
+  <article class="prose"><h1>Market context — MetaDAO, futarchy, ownership coins</h1>
+<p><em>Compiled 2026-08-12. Pass-2 additions at the bottom.</em></p>
+<h2>The mechanism</h2>
+<ul>
+<li><strong>Futarchy</strong> (Robin Hanson: &quot;vote on values, bet on beliefs&quot;): governance proposals are decided by paired conditional markets. One market prices the org if the proposal passes, the other if it fails. The proposal executes only if the pass-market TWAP exceeds the fail-market TWAP by a configured threshold during the TWAP window.</li>
+<li><strong>Pass edge</strong> = ((passTWAP − failTWAP) / failTWAP) × 100; passes when ≥ twapThreshold.</li>
+<li><strong>Economic direction</strong>: fail-sell is pass-aligned, pass-sell is fail-aligned — trades are classified by economic exposure, not surface direction (01Resolved&#39;s framing).</li>
+<li><strong>Ownership coins</strong> (MetaDAO&#39;s ICO framework, first launch Apr 2025 — MtnDAO): high-float fair issuance, proceeds to onchain treasury under decision-market control, monthly spending limits enforced by the treasury program, IP assigned to DAO-linked entity, team tokens behind an 18-month cliff + performance milestones.</li>
+<li><strong>Ownership Score</strong> (introduced Jul 20-21, 2026): daily, wallet score += USD value of ownership-coin holdings, with 1%/day decay; META weighted 25%. Assigned retroactively to 115K+ wallets. Up to 50% of the Rip Cars raise was allocated by score.</li>
+</ul>
+<h2>2026 momentum</h2>
+<ul>
+<li><strong>Rip Cars</strong>: $31.97M committed vs $250K minimum (128× oversubscribed), 723 wallets, Jul 2026.</li>
+<li><strong>Ordr</strong>: 62× oversubscribed, $9.29M. <strong>Credible</strong>: $32.8M committed, accepted $4M. <strong>Laso</strong>: $25.6M committed, accepted $1M. <strong>Kimia</strong>: 12.1× oversubscribed (Aug). <strong>Jurassic (RAWR)</strong>: first oversubscribed launch on Spark, $12.5M committed.</li>
+<li>META listed on <strong>Coinbase</strong> (plus DexScreener FutarchyAMM integration).</li>
+<li>MetaDAO protocol revenue: ~$127K (Jun) → <strong>~$245K (Jul)</strong>, +93% MoM.</li>
+<li>First <strong>Owners Meeting</strong> in San Francisco (Jul 2026).</li>
+<li>&quot;MetaDAO 2.0&quot; (community/01Resolved shorthand, not a formal initiative): proposal-type thresholds, NAV-guided programmatic token purchases/sales, elected oversight committee.</li>
+<li>Established Solana DAOs also use/experiment with futarchy: Jito, Sanctum, Drift, Marinade (all tracked on the platform). GnosisDAO approved a Futarchy Labs pilot; MetaDAO funds Robin Hanson&#39;s futarchy research at GMU ($80K/6mo).</li>
+<li>MetaDAO itself: founded by pseudonymous Proph3t + Kollan House; ~$12.1M raised (Paradigm-led $2.2M in 2024 + $9.9M OTC Oct 2025 from Paradigm/Variant/6MV — Pantera&#39;s 2024 buy-in was <em>rejected</em> by the decision market); ~1–10 people, SF, hiring engineers at $150–400K per third-party boards. See 10-competitive-landscape.md for mechanics.</li>
+</ul>
+<h2>Scale reality-check (July 2026, per 01Resolved)</h2>
+<table><thead><tr><th>Metric</th><th>Value</th></tr></thead><tbody>
+<tr><td>Total tracked treasury value</td><td>$34.42M</td></tr>
+<tr><td>Decision-market volume (month)</td><td><strong>$5.86K</strong></td></tr>
+<tr><td>Proposals resolved (month)</td><td>1</td></tr>
+<tr><td>Completed launches (month)</td><td>4</td></tr>
+<tr><td>Total launches / market cap of launched projects</td><td>12 / ~$100M</td></tr>
+</tbody></table>
+<p>The market is tiny today; the bet is on trajectory and on owning the data layer if ownership coins become a real capital market.</p>
+<h2>Mechanism stress-tests (all covered by 01Resolved)</h2>
+<ul>
+<li><strong>Umbra treasury attack (Aug 2026)</strong>: fresh wallet funded ~$149K via deBridge from Base, accumulated exactly the 500K UMBRA proposal stake, proposed moving $1.5M (~62% of treasury). Market rejected it 19.55% below threshold; attacker lost only <strong>$4,623</strong>. Defense was 4 distributed wallets ($165K net opposition). Conditional pools held just $52K — thin depth is the exposure. Their proposed fixes: stake locked for proposal duration, thresholds scaling with treasury share requested, deeper pools per proposal type.</li>
+<li><strong>Ranger Finance</strong>: decision market liquidated the project&#39;s treasury (early 2026).</li>
+<li><strong>ZKFG/Zinc</strong>: revenue kept outside the DAO treasury → trust dispute → structured buyout of IP, DAO dissolved. Basis of their &quot;route 100% of revenue through the treasury&quot; position.</li>
+<li><strong>Flash Trade</strong>: winding down unless acquired (Aug 2026).</li>
+<li><strong>Ownership Score correctness</strong>: individual scores publicly disputed on X after the snapshot; MetaDAO says the formula may change; retroactivity rewarded conviction but top scorers mostly didn&#39;t participate in the raise it gated.</li>
+</ul>
+<h2>Ownership Score / Rip Cars key findings (their flagship analysis)</h2>
+<ul>
+<li>170 wallets (0.15%) hold 50% of all score; top 1,000 hold 78.8%.</li>
+<li>70% of Rip Cars contributors carried some score (77% of capital), but participants held only 7.6% of all score in existence; 3 of the 5 largest commitments had zero score.</li>
+<li>Day-1 retention: score-allocated wallets kept <strong>63%</strong> of tokens vs <strong>18%</strong> for others; top score quartile sold 26% vs 60-75% for lower quartiles.</li>
+<li>Conclusion: the score is crude but beat allocating without it; they committed to 1-week and 1-month retention re-runs.</li>
+</ul></article>
+    <div class="prose" style="padding-top:0"><p><a href="index.html">All research</a></p></div>
+</body>
+</html>
